@@ -11,34 +11,40 @@
     :root {
       --ink: oklch(0.17 0.02 50);
       --muted: oklch(0.44 0.02 50);
-      --paper: oklch(0.955 0.018 88);
-      --panel: oklch(0.93 0.02 85);
-      --rule: oklch(0.8 0.025 80);
+      --paper: oklch(0.92 0.035 85);
+      --panel: oklch(0.89 0.03 82);
+      --rule: oklch(0.74 0.035 75);
       --accent: oklch(0.42 0.12 28);
       --display: "Noto Serif SC", serif;
       --body: "Noto Sans SC", sans-serif;
       --mono: "JetBrains Mono", ui-monospace, monospace;
       --space: 1.2rem;
       --max: 1120px;
-      --dot: oklch(0.78 0.025 80);
+      --parchment-deep: oklch(0.84 0.045 78);
+      --parchment-mid: oklch(0.9 0.04 86);
+      --parchment-edge: oklch(0.78 0.05 72);
     }
     html[data-theme="ink"] {
       --ink: oklch(0.94 0.015 80);
       --muted: oklch(0.74 0.02 80);
-      --paper: oklch(0.16 0.016 50);
-      --panel: oklch(0.21 0.018 50);
-      --rule: oklch(0.32 0.02 50);
+      --paper: oklch(0.18 0.02 55);
+      --panel: oklch(0.23 0.022 55);
+      --rule: oklch(0.34 0.02 55);
       --accent: oklch(0.78 0.1 55);
-      --dot: oklch(0.28 0.02 50);
+      --parchment-deep: oklch(0.14 0.018 50);
+      --parchment-mid: oklch(0.2 0.02 55);
+      --parchment-edge: oklch(0.12 0.016 48);
     }
     html[data-theme="field"] {
       --ink: oklch(0.2 0.04 250);
       --muted: oklch(0.4 0.03 250);
-      --paper: oklch(0.96 0.012 240);
-      --panel: oklch(0.93 0.018 235);
-      --rule: oklch(0.8 0.03 240);
+      --paper: oklch(0.94 0.02 230);
+      --panel: oklch(0.91 0.022 228);
+      --rule: oklch(0.78 0.03 235);
       --accent: oklch(0.4 0.1 250);
-      --dot: oklch(0.82 0.03 240);
+      --parchment-deep: oklch(0.88 0.025 235);
+      --parchment-mid: oklch(0.93 0.02 235);
+      --parchment-edge: oklch(0.82 0.03 230);
     }
     html[data-type="sans"] { --display: "Noto Sans SC", sans-serif; }
     html[data-density="compact"] { --space: 0.82rem; }
@@ -47,8 +53,19 @@
     html, body { margin: 0; }
     body {
       background-color: var(--paper);
-      background-image: radial-gradient(var(--dot) 0.6px, transparent 0.6px);
-      background-size: 7px 7px;
+      background-image:
+        radial-gradient(ellipse 120% 80% at 20% 10%, color-mix(in oklch, var(--parchment-mid) 70%, transparent), transparent 55%),
+        radial-gradient(ellipse 90% 70% at 85% 90%, color-mix(in oklch, var(--parchment-deep) 55%, transparent), transparent 50%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, transparent 55%, color-mix(in oklch, var(--parchment-edge) 35%, transparent) 100%),
+        repeating-linear-gradient(
+          118deg,
+          transparent 0,
+          transparent 2px,
+          color-mix(in oklch, var(--parchment-deep) 12%, transparent) 2px,
+          color-mix(in oklch, var(--parchment-deep) 12%, transparent) 3px
+        ),
+        linear-gradient(165deg, var(--parchment-mid), var(--paper) 42%, var(--parchment-deep));
+      background-attachment: fixed;
       color: var(--ink);
       font-family: var(--body);
       font-size: 16px;
@@ -473,7 +490,7 @@
     <h4>Tweaks</h4>
     <label for="theme">Theme</label>
     <select id="theme">
-      <option value="paper">纸 · 暖编辑</option>
+      <option value="paper">羊皮纸 · 暖编辑</option>
       <option value="ink">墨 · 暗工作室</option>
       <option value="field">蓝图 · 工学</option>
     </select>
