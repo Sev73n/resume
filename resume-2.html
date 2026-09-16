@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>王麒森 · AI Agent 全栈工程师 · Magazine Profile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#0a0a0a',
+        paper: '#f5f0e6',
+        cream: '#faf7f0',
+        rule: '#2a2a2a',
+        mute: '#5c5c5c',
+        accent: '#8b1e1e',
+        soft: '#e8e2d6',
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        body: ['"IBM Plex Serif"', 'serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+      maxWidth: { prose: '65ch' },
+    },
+  },
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #f5f0e6;
+    background-image: radial-gradient(#cfc6b4 0.65px, transparent 0.65px);
+    background-size: 6px 6px;
+    color: #0a0a0a;
+  }
+  .col-2 {
+    column-count: 2;
+    column-gap: 2.5rem;
+    column-rule: 1px solid #d4cbb8;
+  }
+  @media (max-width: 768px) {
+    .col-2 { column-count: 1; }
+  }
+  .strike-accent {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: #8b1e1e;
+  }
+  .pull {
+    border-left: 3px solid #8b1e1e;
+    font-style: italic;
+  }
+  .ornament::before, .ornament::after {
+    content: '❧';
+    margin: 0 0.75rem;
+    color: #8b1e1e;
+  }
+  .fade-in {
+    animation: fadeIn 0.6s ease-out both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .sec-num {
+    font-variant-numeric: tabular-nums;
+  }
+  a:focus-visible {
+    outline: 2px solid #8b1e1e;
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body class="font-body text-ink antialiased">
+<main class="mx-auto max-w-5xl px-5 py-10 md:px-10 md:py-14 fade-in">
+
+  <!-- Dateline -->
+  <header class="border-y-2 border-rule py-3 mb-8">
+    <div class="flex flex-wrap items-center justify-between gap-3 text-[11px] tracking-[0.18em] uppercase font-mono text-mute">
+      <span>The Agent Dispatch · Profile Edition</span>
+      <span>苏州 · 2026.09.16</span>
+      <span>Issue № 01 · Vol. X</span>
+    </div>
+  </header>
+
+  <!-- Masthead / Identity -->
+  <section class="mb-10 border-b border-soft pb-10">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div class="min-w-0 flex-1">
+    <p class="font-mono text-xs tracking-[0.2em] uppercase text-accent mb-4">求职意向 · AI Agent 全栈工程师</p>
+    <h1 class="font-display text-5xl md:text-7xl leading-[1.05] font-900 tracking-tight mb-4">
+      王麒森
+    </h1>
+    <p class="font-display text-2xl md:text-3xl italic text-mute mb-2">AI Agent 全栈工程师</p>
+    <p class="text-lg md:text-xl max-w-prose leading-relaxed text-mute mt-6">
+      智能体编排 · RAG / 工具调用 · 生产落地。10 年软件工程经验，理工科硕士；近两年以项目产品经理 / 研发主管带约 10 人团队，负责多套生产级内部 Agent 的问题定义与全栈落地。
+    </p>
+    <div class="mt-6 flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-mute border-t border-soft pt-4">
+      <span>电话 15614668674</span>
+      <span aria-hidden="true">｜</span>
+      <a class="underline decoration-accent/40 hover:decoration-accent transition-all" href="mailto:king73lin@foxmail.com">king73lin@foxmail.com</a>
+      <span aria-hidden="true">｜</span>
+      <a class="underline decoration-accent/40 hover:decoration-accent transition-all" href="https://github.com/Sev73n" target="_blank" rel="noopener noreferrer">github.com/Sev73n</a>
+      <span aria-hidden="true">｜</span>
+      <span>现居 苏州</span>
+      <span aria-hidden="true">｜</span>
+      <span>工作年限 10 年</span>
+      <span aria-hidden="true">｜</span>
+      <span>学历 理工科硕士</span>
+    </div>
+      </div>
+      <figure class="shrink-0 self-start border border-rule bg-cream p-1.5">
+        <img src="resume-photo.jpg" alt="王麒森" width="208" height="208" class="h-52 w-52 object-cover object-[50%_16%]" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Lead dual column -->
+  <section class="mb-12">
+    <div class="col-2 text-[15px] leading-[1.75]">
+      <p class="mb-4 first-letter:font-display first-letter:text-5xl first-letter:float-left first-letter:mr-2 first-letter:mt-1 first-letter:leading-none first-letter:text-accent">
+        覆盖出海翻拍、漫剧制作、营销贴片、数字人分发到投流运营；管线作品曾登顶腾讯火龙漫剧首发榜，并产出番茄 / 红果精品互动剧。工作台、编排服务、检索记忆、数字人口播、算力调度与护栏，构成可接口、可观测、可恢复的生产系统。
+      </p>
+      <p class="mb-4">
+        近两年建设企业内部 Agent 与 AI-native 工作流，将工具调用、多智能体编排、上下文记忆、评估与护栏做成生产系统。默认可自动推进，不可逆节点强制人工卡点。
+      </p>
+      <p>
+        全栈交付路径清晰：React 工作台 + FastAPI / Go 服务 + Temporal 状态机 + 分布式 Worker；Agent 与多模态管线、数字人渲染、权限和基础设施按契约交接。
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 01 -->
+  <section class="mb-12 border-t-2 border-rule pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">01</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">个人概述 · 效率与商业结果</h2>
+    </div>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4">工作流效率：出海改编单剧 1.5–3 小时（人工决策 5–15 分钟）；对标内容可一键改稿并生成念白与数字人成片；剧本拆分 API 进入生产，配套 242 项回归。</p>
+      <p class="mb-4">商业结果：管线作品登顶腾讯火龙漫剧首发榜；番茄 / 红果精品互动剧进入平台精品池。</p>
+      <p>工程资产：30+ 团队技能在 Cursor / Claude Code / Kilo 多运行时同步；数字人 / ASR / RAG / 自训练与视频渲染共用弹性算力基座。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-xl font-display italic text-ink/90 max-w-prose">
+      「默认可自动推进，不可逆节点强制人工卡点。」
+    </blockquote>
+  </section>
+
+  <!-- Section 02 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">02</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">核心能力 · Agent 系统架构</h2>
+    </div>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4"><strong class="font-semibold">Agent 系统架构：</strong>工具调用、多智能体编排、状态机与交接协议（Handoff / stuck / 终止）、上下文与记忆；自研节点编排，落地生产级 Multi-Agent 协作。</p>
+      <p><strong class="font-semibold">RAG 与记忆：</strong>PostgreSQL pgvector 向量检索、设定库回灌、增量记忆写回；检索策略与 critique-revise 重排结合，支撑长文本改编。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      自研节点编排，落地生产级 Multi-Agent 协作。
+    </blockquote>
+  </section>
+
+  <!-- Section 03 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">03</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">核心能力 · Prompt、数字人与工作流</h2>
+    </div>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4"><strong class="font-semibold">Prompt 与接口工程：</strong>提示词版本化、结构化输出 Schema 强校验、模型 API 封装、多渠道路由与成本台账。</p>
+      <p class="mb-4"><strong class="font-semibold">数字人与多模态成片：</strong>低门槛基底采集（手持拍摄、美颜即可建模）、口播脚本自动化、对标内容一键改稿生成念白与数字人视频，并一键分发视频号 / 小红书 / 抖音 / 大众点评。</p>
+      <p><strong class="font-semibold">AI-native 工作流：</strong>协调 Agent 行为、人工审核与跨团队交接；在自动化与可控性之间取舍，不可逆节点人工卡点，口播数字人链路可全自动闭环。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      低门槛基底采集，口播数字人链路可全自动闭环。
+    </blockquote>
+  </section>
+
+  <!-- Section 04 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">04</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">核心能力 · 护栏、权限与编码 Agent</h2>
+    </div>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4"><strong class="font-semibold">评估、护栏与可观测：</strong>内容红线、golden 回归、全链路审计、监控告警、看门狗自愈、失败换机与重试分类。</p>
+      <p class="mb-4"><strong class="font-semibold">权限、审计与安全上线：</strong>审核留痕、项目级队列与租约隔离、角色权限、内部多租户鉴权与用量台账。</p>
+      <p><strong class="font-semibold">编码 Agent 与内部自动化：</strong>Cursor、Claude Code、Kilo 多运行时；MCP 工具化；工作流封装为 Agent 可检索工具。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      用 golden 回归与生产反馈持续改进工作流。
+    </blockquote>
+  </section>
+
+  <!-- Section 05 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">05</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">核心能力 · 算力基座与全栈</h2>
+    </div>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4"><strong class="font-semibold">共用算力基座：</strong>弹性调度与动态负载均衡，数字人本地渲染、本地 ASR、RAG、自训练和视频处理共享同一算力池，按各服务峰值错峰，降低空闲成本。</p>
+      <p class="mb-4"><strong class="font-semibold">全栈与云原生：</strong>Python / FastAPI、Go、React / TypeScript、PostgreSQL（pgvector）/ MySQL / Redis、MinIO、Docker；Celery 生图队列；Temporal 全链路状态机；Nomad 机器调度；Windmill 公用运行时。早期栈含 Unity、uni-app、微信小程序。</p>
+      <p><strong class="font-semibold">产品与跨团队：</strong>带约 10 人；对接制作、投放、基建与模型团队，将不完整需求收成接口、状态和交付计划。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      按各服务峰值错峰调度，降低空闲占用和单位成本。
+    </blockquote>
+  </section>
+
+  <!-- Section 06 -->
+  <section class="mb-12 border-t-2 border-rule pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">06</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">项目① 漫剧生产平台</h2>
+    </div>
+    <p class="font-mono text-xs text-mute tracking-wide mb-4">2025.11 – 至今（2026.02 起 Seedance 2.0 默认可自动推进）　｜　项目产品经理 / 研发主管　｜　带队约 10 人</p>
+    <p class="font-mono text-[11px] text-mute mb-5">React / TypeScript 节点画布 · FastAPI / Node.js 编排 API · Celery 生图队列 · 分布式 Worker · Vidu / Seedance · Cursor / Claude Code</p>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4">将制作流程抽象为可编排工作流：创意 → 剧本拆解 → 人物设定 → 角色 / 资产生成 → 分镜 → 视频生成 → 验收审计；为每个节点定义接口、状态、人工卡点和失败恢复。</p>
+      <p class="mb-4">带约 10 人交付多用户工作台与后端编排服务；导演 / 制片审核贯穿不可逆节点；用 Cursor / Claude Code 将节点协议、校验和 Worker 技能沉淀为可复用资产。</p>
+      <p>2026.02 起配合火山引擎做 Seedance 2.0 调参，将半自动管线升级为默认可自动推进，并补齐 GPU 质检 / 违规打码、投放、二创与贴片 / 配乐，形成制作到运营闭环。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose mb-4">
+      管线作品登顶腾讯火龙漫剧首发榜。
+    </blockquote>
+    <ul class="list-disc pl-5 text-[14px] leading-relaxed space-y-1 max-w-prose">
+      <li>《宗主别撩了：四位尊上要疯了》</li>
+      <li>《钢枪之吻》</li>
+      <li>《诡异降临》</li>
+      <li>《常春藤密室游戏之致命指令》</li>
+      <li>另产出番茄 / 红果精品《逃出新婚夜》互动剧等</li>
+    </ul>
+  </section>
+
+  <!-- Section 07 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">07</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">项目② 稻草人内容翻拍系统</h2>
+    </div>
+    <p class="font-mono text-xs text-mute tracking-wide mb-4">2025.06 – 至今　｜　总体架构与核心模块 · 内容出海翻拍</p>
+    <p class="font-mono text-[11px] text-mute mb-5">React 工作台 · FastAPI / Go · PostgreSQL pgvector（RAG）· Redis · Windmill · 豆包 / DeepSeek</p>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4">面向已有成片 / 文稿做目标市场改编；10 步改编、16 个 LLM 节点，支持手动 / Handoff / autodrive，Prompt 与节点 API 统一封装。</p>
+      <p class="mb-4">双角色主笔 / 质检 + critique-revise 回灌，完成多智能体冲突消解；单剧 1.5–3 小时、人工决策 5–15 分钟，单剧成本约 ¥30–100。</p>
+      <p class="mb-4">剧本中台承担生产级 RAG：docx 行号规范、双轨切分、设定库 + pgvector 检索回灌与增量记忆写回；script-split API 进入生产链路，配套 242 项回归。</p>
+      <p>草帽 videotoscript 将多模态成片压成人物 / 场景 / 情节记忆，scriptforge Worker 供翻拍与套拍固定调用；工作台补齐 TTS 多角色配音与分镜切割。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      16 个 LLM 节点 · 单剧 ¥30–100 · 242 项回归进生产。
+    </blockquote>
+  </section>
+
+  <!-- Section 08 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">08</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">项目③ 前奏曲 · AI 营销贴片</h2>
+    </div>
+    <p class="font-mono text-xs text-mute tracking-wide mb-4">2025 – 2026.09　｜　平台方案与生产交付</p>
+    <p class="font-mono text-[11px] text-mute mb-5">FastAPI · MySQL / Redis / MinIO · FFmpeg Worker · 豆包 / DeepSeek / Seedance</p>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4">独立产品线：ADX / 原片 → ASR → 钩子脚本 → Seedance 成片 → 字幕 → 审核 → 合并回原片 → 投放 JSON；Agent、人工审核与投放系统按接口交接。</p>
+      <p class="mb-4">Worker 按 Manifest 自动发现，覆盖合并 / 转码 / 烧字幕、角色首登场识别、去字幕和黑场 / 首帧 / 短镜头质检。</p>
+      <p>制作 / 审核 / 批次多角色工作台卡在不可逆节点，避免未审贴片进入投放；全链路可审计、可回滚。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      避免未审贴片进入投放；全链路可审计、可回滚。
+    </blockquote>
+  </section>
+
+  <!-- Section 09 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">09</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">项目④ 算力调度与分布式媒体平台</h2>
+    </div>
+    <p class="font-mono text-xs text-mute tracking-wide mb-4">2026.01 – 2026.06　｜　总体架构与调度 · 后端基座共用服务</p>
+    <p class="font-mono text-[11px] text-mute mb-5">FastAPI · Temporal 状态机 · Nomad 调度 · Docker · Cyclone 任务总线 · Windows Worker · 开源数字人 · FunASR · pgvector</p>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4">为漫剧、翻拍、贴片、数字人、投流等上层业务提供共用后端基座：统一任务总线接入转写、贴字、配乐、拉片、数字人渲染、本地 ASR、RAG 检索与自训练等 Worker；队列状态、接口契约和失败恢复对业务侧可见。</p>
+      <p class="mb-4">弹性算力与动态负载均衡：同一 GPU / Worker 池按各服务峰值错峰调度，本地渲染（开源数字人、视频处理）与推理任务（ASR、RAG、自训练）可混部，降低空闲占用和单位成本。</p>
+      <p class="mb-4">Temporal 承接跨服务状态机，Nomad 负责 Worker 落机，Docker 做运行时封装；视频算力池支持失败重试、stale 收割、NVENC 探针、autodrain 与冒烟隔离上线。</p>
+      <p>GPU 租约网关 Reserve → Execute → Release，失败换机重试；Worker 自描述并按最小 inflight 选路；内网 ASR 做分片转写、背压与缓存。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      GPU 租约网关 Reserve → Execute → Release，失败换机重试。
+    </blockquote>
+  </section>
+
+  <!-- Section 10 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">10</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">项目⑤ 聚光灯 · 内容生产营销一体化</h2>
+    </div>
+    <p class="font-mono text-xs text-mute tracking-wide mb-4">2025 – 2026.09　｜　平台方案与生产交付</p>
+    <p class="font-mono text-[11px] text-mute mb-5">FastAPI · MySQL / Redis / MinIO · FFmpeg · 豆包 / DeepSeek / Seedance · 开源数字人 · 一键分发</p>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4">原片理解 → 故事产能 → LLM 选片 → FFmpeg 成片 → 人工审核；项目级队列与租约隔离，保证多项目并行时权限和资源不串。</p>
+      <p class="mb-4">数字人口播：基底素材门槛低，用户手持拍摄、开启美颜即可建模；对标内容一键改稿，自动生成口播脚本、念白与数字人视频，链路可全自动闭环。</p>
+      <p class="mb-4">成片经一键分发同步视频号、小红书、抖音、大众点评等平台；数字人渲染与视频处理走共用算力基座，与本地 ASR / RAG / 自训练任务一起弹性调度。</p>
+      <p class="mb-4">选片走 critique-revise + Schema / 业务强校验回灌；DB outbox、看门狗自愈与发版门禁，用评估和生产反馈持续收敛线上问题。</p>
+      <p>与前奏曲共用媒体基础设施，形成「制作 Agent → 数字人 / 贴片 → 审核 → 投放 / 分发」的运营闭环。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      制作 Agent → 数字人 / 贴片 → 审核 → 投放 / 分发。
+    </blockquote>
+  </section>
+
+  <!-- Section 11 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">11</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">项目⑥ 编码 Agent 工程化体系</h2>
+    </div>
+    <p class="font-mono text-xs text-mute tracking-wide mb-4">2026.05 – 至今　｜　体系设计与落地 · 团队内部数字员工产品化</p>
+    <p class="font-mono text-[11px] text-mute mb-5">Python / TypeScript · Gitea · Caddy · Windmill · MCP · Cursor / Claude Code / Kilo</p>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4">内网 Gitea 建设 30+ 团队 Agent 技能，在 Cursor、Claude Code、Kilo 多运行时双向同步，将个人经验沉淀为可分发的内部自动化资产。</p>
+      <p class="mb-4">统一适配多种 coding-agent CLI：内部工具经 Windmill 生成后，经 Caddy 注册进入可调用接口。</p>
+      <p>将 Dify 等工作流封装为 MCP / API 工具供 Agent 检索调用（剧本分拆 / 分镜 / Seedance 2.x）；多租户模板提供鉴权、队列与三段式计费，便于权限与成本受控地上线。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      30+ 团队技能 · 多运行时双向同步 · MCP 可检索工具。
+    </blockquote>
+  </section>
+
+  <!-- Section 12 -->
+  <section class="mb-12 border-t-2 border-rule pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">12</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">工作经历 · 鸥溪网络（苏州）</h2>
+    </div>
+    <p class="font-mono text-xs text-mute tracking-wide mb-4">深圳市鸥溪网络科技有限公司苏州分公司　｜　2023.06 – 至今</p>
+    <p class="text-sm mb-4 text-mute italic">软件开发工程师（项目产品经理 / 研发主管 · Agent 全栈）</p>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4">近两年负责内部 Agent 平台的问题定义、架构与全栈落地，带约 10 人团队。</p>
+      <p class="mb-4">负责内容生产 Agent 与数字人分发的总体方案：节点接口、状态机、人工卡点、审计留痕与失败恢复，推动原型到中试 / 生产。</p>
+      <p class="mb-4">建设共用算力基座，让数字人本地渲染、视频处理、本地 ASR、RAG 与自训练按负载弹性调度，控制并发与成本。</p>
+      <p class="mb-4">对接制作、投放、基建与外部模型团队，将不完整需求收成可排期的系统设计与交付计划。</p>
+      <p class="mb-4">建立评估、监控告警和发版门禁，用 golden 回归与生产反馈持续改进工作流。</p>
+      <p>推广 Cursor / Claude Code 等编码 Agent，沉淀团队技能、调用规范与算力使用边界。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      负责内部 Agent 平台的问题定义、架构与全栈落地，带约 10 人团队。
+    </blockquote>
+  </section>
+
+  <!-- Section 13 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">13</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">工作经历 · 七步文化传媒</h2>
+    </div>
+    <p class="font-mono text-xs text-mute tracking-wide mb-4">苏州七步文化传媒有限公司　｜　2020.04 – 2023.05</p>
+    <p class="text-sm mb-4 text-mute italic">软件开发工程师 / 内容总监</p>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4"><strong class="font-semibold">软件：</strong>为中车交付 Unity 产品展示沙盘与数字人内容（展会现场），形成后续低门槛口播数字人的能力起点；uni-app 企业微信小程序；投放平台后端 / 运维与自动客服。</p>
+      <p><strong class="font-semibold">内容：</strong>带队完成品牌宣发、MCN 与线下活动（客户含中国中车等）；将拍板、人审节点和验收标准压成可执行流程，成为后续人工卡点工作流的设计来源。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      中车展会数字人，是后续低门槛口播数字人的能力起点。
+    </blockquote>
+  </section>
+
+  <!-- Section 14 -->
+  <section class="mb-12 border-t border-soft pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">14</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">早期履历 · 2014 – 2017</h2>
+    </div>
+    <div class="col-2 text-[15px] leading-[1.75] mb-6">
+      <p class="mb-4"><strong class="font-semibold">青岛软媒网络科技有限公司（IT之家）</strong>　｜　网页与产品 / 科技专栏编辑 → 栏目主编</p>
+      <p class="mb-4"><strong class="font-semibold">深圳市蜂群文化传播有限公司</strong>　｜　软件开发 / 科技内容运营</p>
+      <p>负责网页、公众号和实用工具，将科技信息做成可分发产品；IT之家「IT黑板报」原创视频新闻栏目主编，为司内最快达到 10 万粉丝的栏目。</p>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      「IT黑板报」——司内最快达到 10 万粉丝的原创视频新闻栏目。
+    </blockquote>
+  </section>
+
+  <!-- Section 15 -->
+  <section class="mb-12 border-t-2 border-rule pt-8">
+    <div class="flex items-baseline gap-4 mb-4">
+      <span class="sec-num font-mono text-accent text-sm tracking-widest">15</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold">教育背景</h2>
+    </div>
+    <div class="space-y-8 mb-6">
+      <article class="border border-soft rounded-2xl bg-cream/60 p-6 shadow-sm">
+        <h3 class="font-display text-2xl font-bold mb-2">日本国立北陆先端科学技术大学院大学（JAIST）</h3>
+        <p class="font-mono text-xs text-mute mb-3">理工科硕士（知识科学）　｜　2017.04 – 2020.03</p>
+        <div class="col-2 text-[15px] leading-[1.75]">
+          <p class="mb-3">工作后赴日读研。课题「关于使用虚拟现实设备降低眩晕度的方法研究」：Unity 实现实验素材与 demo，Python 做统计、神经网络训练和脑机接口胶水层。</p>
+        </div>
+      </article>
+      <article class="border border-soft rounded-2xl bg-cream/60 p-6 shadow-sm">
+        <h3 class="font-display text-2xl font-bold mb-2">太原科技大学</h3>
+        <p class="font-mono text-xs text-mute">本科　｜　电气工程　｜　2014 年毕业</p>
+      </article>
+    </div>
+    <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
+      课题：使用虚拟现实设备降低眩晕度。Unity 实验素材，Python 统计与神经网络，脑机接口胶水层。
+    </blockquote>
+  </section>
+
+  <!-- Key metrics strip -->
+  <section class="mb-14 border-y-2 border-rule py-8">
+    <h2 class="font-display text-2xl font-bold mb-6 text-center">数字速览</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="font-display text-4xl font-bold text-accent">10</p>
+        <p class="font-mono text-[11px] tracking-wide uppercase text-mute mt-1">年软件工程</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl font-bold text-accent">~10</p>
+        <p class="font-mono text-[11px] tracking-wide uppercase text-mute mt-1">人带队规模</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl font-bold text-accent">30+</p>
+        <p class="font-mono text-[11px] tracking-wide uppercase text-mute mt-1">团队 Agent 技能</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl font-bold text-accent">242</p>
+        <p class="font-mono text-[11px] tracking-wide uppercase text-mute mt-1">剧本拆分回归项</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl font-bold text-accent">1.5–3h</p>
+        <p class="font-mono text-[11px] tracking-wide uppercase text-mute mt-1">出海改编单剧</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl font-bold text-accent">¥30–100</p>
+        <p class="font-mono text-[11px] tracking-wide uppercase text-mute mt-1">单剧改编成本</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl font-bold text-accent">16</p>
+        <p class="font-mono text-[11px] tracking-wide uppercase text-mute mt-1">LLM 改编节点</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl font-bold text-accent">6</p>
+        <p class="font-mono text-[11px] tracking-wide uppercase text-mute mt-1">生产级 Agent 项目</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature -->
+  <footer class="text-center pt-4 pb-8">
+    <p class="ornament font-display text-xl italic text-ink">王麒森 · AI Agent 全栈</p>
+    <p class="mt-3 font-mono text-[11px] tracking-[0.15em] uppercase text-mute">
+      智能体编排 · RAG / 工具调用 · 生产落地
+    </p>
+    <p class="mt-6 font-mono text-[10px] text-mute/80">
+      Printed for hiring desks · The Agent Dispatch · 苏州
+    </p>
+    <!-- small SVG ornament -->
+    <svg class="mx-auto mt-4 opacity-70" width="48" height="16" viewBox="0 0 48 16" aria-hidden="true">
+      <path d="M2 8h14M32 8h14M24 2v12M18 8c0-3 3-5 6-5s6 2 6 5-3 5-6 5-6-2-6-5z" fill="none" stroke="#8b1e1e" stroke-width="1.2"/>
+    </svg>
+  </footer>
+
+</main>
+</body>
+</html>
