@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="paper" data-density="regular" data-type="serif">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>王麒森 · AI Agent 全栈工程师</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: oklch(0.17 0.02 50);
+      --muted: oklch(0.44 0.02 50);
+      --paper: oklch(0.955 0.018 88);
+      --panel: oklch(0.93 0.02 85);
+      --rule: oklch(0.8 0.025 80);
+      --accent: oklch(0.42 0.12 28);
+      --display: "Noto Serif SC", serif;
+      --body: "Noto Sans SC", sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --space: 1.2rem;
+      --max: 1120px;
+      --dot: oklch(0.78 0.025 80);
+    }
+    html[data-theme="ink"] {
+      --ink: oklch(0.94 0.015 80);
+      --muted: oklch(0.74 0.02 80);
+      --paper: oklch(0.16 0.016 50);
+      --panel: oklch(0.21 0.018 50);
+      --rule: oklch(0.32 0.02 50);
+      --accent: oklch(0.78 0.1 55);
+      --dot: oklch(0.28 0.02 50);
+    }
+    html[data-theme="field"] {
+      --ink: oklch(0.2 0.04 250);
+      --muted: oklch(0.4 0.03 250);
+      --paper: oklch(0.96 0.012 240);
+      --panel: oklch(0.93 0.018 235);
+      --rule: oklch(0.8 0.03 240);
+      --accent: oklch(0.4 0.1 250);
+      --dot: oklch(0.82 0.03 240);
+    }
+    html[data-type="sans"] { --display: "Noto Sans SC", sans-serif; }
+    html[data-density="compact"] { --space: 0.82rem; }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      background-color: var(--paper);
+      background-image: radial-gradient(var(--dot) 0.6px, transparent 0.6px);
+      background-size: 7px 7px;
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.68;
+      text-wrap: pretty;
+    }
+    ::selection { background: color-mix(in oklch, var(--accent) 28%, var(--paper)); }
+    a { color: var(--accent); text-underline-offset: 0.18em; }
+    a:hover { color: var(--ink); }
+
+    .page { width: min(var(--max), calc(100% - 3.2rem)); margin: 0 auto; padding: 2.4rem 0 6rem; }
+    .rail {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.6rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 2px solid var(--ink);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .mast {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 1.6rem 2.6rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .kicker {
+      margin: 0 0 0.7rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .name {
+      font-family: var(--display);
+      font-size: clamp(3.4rem, 7vw, 5.4rem);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      margin: 0;
+    }
+    .role {
+      margin: 1rem 0 0;
+      max-width: 28rem;
+      font-size: 1.02rem;
+      color: var(--muted);
+    }
+    .lead {
+      grid-column: 1 / -1;
+      margin: 0;
+      max-width: 72ch;
+      font-size: 1.05rem;
+    }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0;
+      margin: 1.25rem 0 0;
+      padding: 0.85rem 0 0;
+      border-top: 1px solid var(--rule);
+      list-style: none;
+      font-size: 0.88rem;
+    }
+    .contact li:not(:last-child)::after {
+      content: "·";
+      margin: 0 0.7rem;
+      color: var(--rule);
+    }
+
+    .portrait-wrap {
+      margin: 0;
+      padding: 6px;
+      border: 1px solid var(--ink);
+      background: var(--panel);
+      align-self: start;
+    }
+    .portrait {
+      width: 208px;
+      height: 208px;
+      object-fit: cover;
+      object-position: 50% 16%;
+      display: block;
+      filter: grayscale(0.18) contrast(1.04);
+    }
+    html[data-theme="ink"] .portrait { filter: grayscale(0.28) contrast(1.08); }
+
+    section { margin-top: calc(var(--space) * 3.4); }
+    .sec-h {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      gap: 1rem;
+      align-items: end;
+      margin: 0 0 1.3rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--ink);
+    }
+    .sec-h small {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+    .sec-h h2 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 1.55rem;
+      font-weight: 650;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem 1.4rem;
+      margin-top: 1.3rem;
+    }
+    .facts > div { padding-top: 0.7rem; border-top: 1px solid var(--rule); }
+    .facts dt {
+      font-family: var(--display);
+      font-size: 1.02rem;
+      font-weight: 650;
+      margin: 0 0 0.35rem;
+    }
+    .facts dd { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 9.6rem 1fr;
+      gap: 0.85rem 1.6rem;
+    }
+    .skills dt {
+      margin: 0;
+      padding-top: 0.2rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
+    .skills dd {
+      margin: 0;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .job, .work { margin: 0 0 calc(var(--space) * 2.2); }
+    .job-top {
+      display: grid;
+      grid-template-columns: 2.4rem 1fr auto;
+      gap: 0.5rem 1rem;
+      align-items: baseline;
+    }
+    .num {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+    .job h3, .work h3 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 650;
+    }
+    .when {
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+    .sub {
+      margin: 0.4rem 0 0.6rem 3.4rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .job ul, .work ul {
+      margin: 0.2rem 0 0 3.4rem;
+      padding: 0;
+      list-style: none;
+    }
+    .job li, .work li {
+      position: relative;
+      margin: 0.38rem 0;
+      padding-left: 1rem;
+    }
+    .job li::before, .work li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 0.42rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .edu {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 1.6rem 2.4rem;
+    }
+    .edu h3 { margin: 0 0 0.4rem; font-family: var(--display); font-size: 1.08rem; }
+    .edu p { margin: 0; color: var(--muted); }
+
+    .foot {
+      margin-top: 3.2rem;
+      padding-top: 0.9rem;
+      border-top: 2px solid var(--ink);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+    }
+
+    #tweak-toggle {
+      position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 20;
+      border: 1px solid var(--ink); background: var(--paper); color: var(--ink);
+      padding: 0.6rem 0.85rem; font: 0.72rem/1 var(--mono); letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer;
+    }
+    #tweaks {
+      display: none; position: fixed; right: 1.1rem; bottom: 3.5rem; z-index: 20;
+      width: 230px; padding: 1rem; background: var(--paper); border: 1px solid var(--ink);
+    }
+    #tweaks.open { display: block; }
+    #tweaks h4 { margin: 0 0 0.7rem; font-family: var(--display); font-size: 0.95rem; }
+    #tweaks label { display: block; margin: 0.55rem 0 0.2rem; font-size: 0.7rem; font-family: var(--mono); color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    #tweaks select { width: 100%; padding: 0.4rem; background: var(--panel); color: var(--ink); border: 1px solid var(--rule); font: inherit; }
+
+    @media (max-width: 900px) {
+      .facts { grid-template-columns: 1fr 1fr; }
+      .mast { grid-template-columns: 1fr 168px; }
+      .portrait { width: 156px; height: 156px; }
+    }
+    @media (max-width: 620px) {
+      .page { width: calc(100% - 2rem); padding-top: 1.4rem; }
+      .mast { grid-template-columns: 1fr 104px; gap: 1rem; }
+      .portrait { width: 92px; height: 92px; }
+      .edu, .skills, .sec-h, .job-top { grid-template-columns: 1fr; }
+      .facts { grid-template-columns: 1fr; }
+      .job ul, .work ul, .sub { margin-left: 0; }
+      .when { white-space: normal; }
+      .name { font-size: 2.6rem; }
+    }
+    @media print {
+      #tweak-toggle, #tweaks { display: none !important; }
+      body { background: white; font-size: 11pt; }
+      .page { width: auto; padding: 0; }
+      a { color: inherit; text-decoration: none; }
+      .portrait { filter: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="rail"><span>Resume / Agent Engineer</span><span>Suzhou · 2014–2026</span></p>
+    <header class="mast" data-screen-label="01 Masthead">
+      <div>
+        <p class="kicker">王麒森 · Kaysen Wang</p>
+        <h1 class="name">王麒森</h1>
+        <p class="role">AI Agent 全栈工程师<br />智能体编排 / RAG / 生产落地</p>
+        <ul class="contact">
+          <li>苏州 · 10 年 · 理工科硕士</li>
+          <li><a href="tel:15614668674">15614668674</a></li>
+          <li><a href="mailto:king73lin@foxmail.com">king73lin@foxmail.com</a></li>
+          <li><a href="https://github.com/Sev73n">github.com/Sev73n</a></li>
+        </ul>
+      </div>
+      <figure class="portrait-wrap">
+        <img class="portrait" src="resume-photo.jpg" alt="王麒森" width="208" height="208" />
+      </figure>
+      <p class="lead">近两年以项目产品经理 / 研发主管带约 10 人团队，负责多套生产级内部 Agent 的问题定义与全栈落地：工作台、编排服务、检索记忆、数字人口播、算力调度与护栏。覆盖出海翻拍、漫剧制作、营销贴片、数字人分发到投流运营。管线作品曾登顶腾讯火龙漫剧首发榜，并产出番茄 / 红果精品互动剧。</p>
+    </header>
+
+    <section data-screen-label="02 Overview">
+      <div class="sec-h"><small>01</small><h2>个人概述</h2></div>
+      <p>近两年建设企业内部 Agent 与 AI-native 工作流，将工具调用、多智能体编排、上下文记忆、评估与护栏做成可接口、可观测、可恢复的生产系统。默认可自动推进，不可逆节点强制人工卡点。</p>
+      <dl class="facts">
+        <div><dt>全栈交付</dt><dd>React 工作台 + FastAPI / Go + Temporal + 分布式 Worker；Agent 与多模态管线、数字人渲染、权限和基础设施按契约交接。</dd></div>
+        <div><dt>工作流效率</dt><dd>出海改编单剧 1.5–3 小时（人工决策 5–15 分钟）；对标内容可一键改稿并生成念白与数字人成片；剧本拆分 API 配套 242 项回归。</dd></div>
+        <div><dt>商业结果</dt><dd>管线作品登顶腾讯火龙漫剧首发榜；番茄 / 红果精品互动剧进入平台精品池。</dd></div>
+        <div><dt>工程资产</dt><dd>30+ 团队技能在 Cursor / Claude Code / Kilo 多运行时同步；数字人 / ASR / RAG / 自训练与视频渲染共用弹性算力基座。</dd></div>
+      </dl>
+    </section>
+
+    <section data-screen-label="03 Skills">
+      <div class="sec-h"><small>02</small><h2>核心能力</h2></div>
+      <dl class="skills">
+        <dt>Agent 系统架构</dt><dd>工具调用、多智能体编排、状态机与交接协议（Handoff / stuck / 终止）、上下文与记忆；自研节点编排，落地生产级 Multi-Agent 协作。</dd>
+        <dt>RAG 与记忆</dt><dd>PostgreSQL pgvector 向量检索、设定库回灌、增量记忆写回；检索策略与 critique-revise 重排结合，支撑长文本改编。</dd>
+        <dt>Prompt 与接口</dt><dd>提示词版本化、结构化输出 Schema 强校验、模型 API 封装、多渠道路由与成本台账。</dd>
+        <dt>数字人与成片</dt><dd>低门槛基底采集（手持拍摄、美颜即可建模）、口播脚本自动化、对标内容一键改稿生成念白与数字人视频，并一键分发视频号 / 小红书 / 抖音 / 大众点评。</dd>
+        <dt>AI-native 工作流</dt><dd>协调 Agent 行为、人工审核与跨团队交接；不可逆节点人工卡点，口播数字人链路可全自动闭环。</dd>
+        <dt>评估与可观测</dt><dd>内容红线、golden 回归、全链路审计、监控告警、看门狗自愈、失败换机与重试分类。</dd>
+        <dt>权限与安全上线</dt><dd>审核留痕、项目级队列与租约隔离、角色权限、内部多租户鉴权与用量台账。</dd>
+        <dt>编码 Agent</dt><dd>Cursor、Claude Code、Kilo 多运行时；MCP 工具化；工作流封装为 Agent 可检索工具。</dd>
+        <dt>共用算力基座</dt><dd>弹性调度与动态负载均衡；数字人本地渲染、本地 ASR、RAG、自训练和视频处理共享同一算力池，按峰值错峰降低空闲成本。</dd>
+        <dt>全栈与云原生</dt><dd>Python / FastAPI、Go、React / TypeScript、PostgreSQL（pgvector）/ MySQL / Redis、MinIO、Docker；Celery、Temporal、Nomad、Windmill。早期栈含 Unity、uni-app、微信小程序。</dd>
+        <dt>产品与跨团队</dt><dd>带约 10 人；对接制作、投放、基建与模型团队，将不完整需求收成接口、状态和交付计划。</dd>
+      </dl>
+    </section>
+
+    <section data-screen-label="04 Projects">
+      <div class="sec-h"><small>03</small><h2>项目经历</h2></div>
+
+      <article class="job">
+        <div class="job-top"><span class="num">01</span><h3>漫剧生产平台（研发主管带队）</h3><span class="when">2025.11 – 至今</span></div>
+        <p class="sub">项目产品经理 / 研发主管 · 约 10 人 · React / TypeScript 节点画布 · FastAPI / Node.js · Celery · 分布式 Worker · Vidu / Seedance · Cursor / Claude Code · 2026.02 起 Seedance 2.0 默认可自动推进</p>
+        <ul>
+          <li>将制作流程抽象为可编排工作流：创意 → 剧本拆解 → 人物设定 → 角色 / 资产生成 → 分镜 → 视频生成 → 验收审计；为每个节点定义接口、状态、人工卡点和失败恢复。</li>
+          <li>带约 10 人交付多用户工作台与后端编排服务；导演 / 制片审核贯穿不可逆节点；用 Cursor / Claude Code 将节点协议、校验和 Worker 技能沉淀为可复用资产。</li>
+          <li>配合火山引擎做 Seedance 2.0 调参，将半自动管线升级为默认可自动推进，并补齐 GPU 质检 / 违规打码、投放、二创与贴片 / 配乐。</li>
+          <li>管线作品登顶腾讯火龙漫剧首发榜：《宗主别撩了：四位尊上要疯了》《钢枪之吻》《诡异降临》《常春藤密室游戏之致命指令》；另产出番茄 / 红果精品《逃出新婚夜》互动剧等。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">02</span><h3>稻草人内容翻拍系统（内容出海翻拍）</h3><span class="when">2025.06 – 至今</span></div>
+        <p class="sub">总体架构与核心模块 · React · FastAPI / Go · PostgreSQL pgvector（RAG）· Redis · Windmill · 豆包 / DeepSeek</p>
+        <ul>
+          <li>面向已有成片 / 文稿做目标市场改编；10 步改编、16 个 LLM 节点，支持手动 / Handoff / autodrive，Prompt 与节点 API 统一封装。</li>
+          <li>双角色主笔 / 质检 + critique-revise 回灌，完成多智能体冲突消解；单剧 1.5–3 小时、人工决策 5–15 分钟，单剧成本约 ¥30–100。</li>
+          <li>剧本中台承担生产级 RAG：docx 行号规范、双轨切分、设定库 + pgvector 检索回灌与增量记忆写回；script-split API 进入生产，配套 242 项回归。</li>
+          <li>草帽 videotoscript 将多模态成片压成人物 / 场景 / 情节记忆，scriptforge Worker 供翻拍与套拍固定调用；工作台补齐 TTS 多角色配音与分镜切割。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">03</span><h3>前奏曲（AI 营销贴片自动生成）</h3><span class="when">2025 – 2026.09</span></div>
+        <p class="sub">平台方案与生产交付 · FastAPI · MySQL / Redis / MinIO · FFmpeg Worker · 豆包 / DeepSeek / Seedance</p>
+        <ul>
+          <li>独立产品线：ADX / 原片 → ASR → 钩子脚本 → Seedance 成片 → 字幕 → 审核 → 合并回原片 → 投放 JSON；Agent、人工审核与投放系统按接口交接。</li>
+          <li>Worker 按 Manifest 自动发现，覆盖合并 / 转码 / 烧字幕、角色首登场识别、去字幕和黑场 / 首帧 / 短镜头质检。</li>
+          <li>制作 / 审核 / 批次多角色工作台卡在不可逆节点，避免未审贴片进入投放；全链路可审计、可回滚。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">04</span><h3>算力调度与分布式媒体平台（后端基座共用服务）</h3><span class="when">2026.01 – 2026.06</span></div>
+        <p class="sub">总体架构与调度 · FastAPI · Temporal · Nomad · Docker · Cyclone · Windows Worker · 开源数字人 · FunASR · pgvector</p>
+        <ul>
+          <li>为漫剧、翻拍、贴片、数字人、投流等上层业务提供共用后端基座；统一任务总线接入转写、贴字、配乐、拉片、数字人渲染、本地 ASR、RAG 检索与自训练等 Worker。</li>
+          <li>弹性算力与动态负载均衡：同一 GPU / Worker 池按各服务峰值错峰调度，本地渲染与推理任务可混部，降低空闲占用和单位成本。</li>
+          <li>Temporal 承接跨服务状态机，Nomad 负责 Worker 落机；视频算力池支持失败重试、stale 收割、NVENC 探针、autodrain 与冒烟隔离上线。</li>
+          <li>GPU 租约网关 Reserve → Execute → Release，失败换机重试；Worker 自描述并按最小 inflight 选路；内网 ASR 做分片转写、背压与缓存。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">05</span><h3>聚光灯（内容生产营销一体化智能平台）</h3><span class="when">2025 – 2026.09</span></div>
+        <p class="sub">平台方案与生产交付 · FastAPI · MySQL / Redis / MinIO · FFmpeg · 豆包 / DeepSeek / Seedance · 开源数字人 · 一键分发</p>
+        <ul>
+          <li>原片理解 → 故事产能 → LLM 选片 → FFmpeg 成片 → 人工审核；项目级队列与租约隔离，保证多项目并行时权限和资源不串。</li>
+          <li>数字人口播：基底素材门槛低，用户手持拍摄、开启美颜即可建模；对标内容一键改稿，自动生成口播脚本、念白与数字人视频，链路可全自动闭环。</li>
+          <li>成片经一键分发同步视频号、小红书、抖音、大众点评等平台；数字人渲染与视频处理走共用算力基座。</li>
+          <li>选片走 critique-revise + Schema / 业务强校验回灌；与前奏曲共用基础设施，形成「制作 Agent → 数字人 / 贴片 → 审核 → 投放 / 分发」闭环。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">06</span><h3>编码 Agent 工程化体系（团队内部数字员工产品化）</h3><span class="when">2026.05 – 至今</span></div>
+        <p class="sub">体系设计与落地 · Python / TypeScript · Gitea · Caddy · Windmill · MCP · Cursor / Claude Code / Kilo</p>
+        <ul>
+          <li>内网 Gitea 建设 30+ 团队 Agent 技能，在 Cursor、Claude Code、Kilo 多运行时双向同步。</li>
+          <li>统一适配多种 coding-agent CLI：内部工具经 Windmill 生成后，经 Caddy 注册进入可调用接口。</li>
+          <li>将 Dify 等工作流封装为 MCP / API 工具供 Agent 检索调用；多租户模板提供鉴权、队列与三段式计费。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section data-screen-label="05 Experience">
+      <div class="sec-h"><small>04</small><h2>工作经历</h2></div>
+      <article class="work">
+        <div class="job-top"><span class="num">—</span><h3>深圳市鸥溪网络科技有限公司苏州分公司</h3><span class="when">2023.06 – 至今</span></div>
+        <p class="sub">软件开发工程师（项目产品经理 / 研发主管 · Agent 全栈）。近两年负责内部 Agent 平台的问题定义、架构与全栈落地，带约 10 人团队。</p>
+        <ul>
+          <li>负责内容生产 Agent 与数字人分发的总体方案：节点接口、状态机、人工卡点、审计留痕与失败恢复。</li>
+          <li>建设共用算力基座，让数字人本地渲染、视频处理、本地 ASR、RAG 与自训练按负载弹性调度。</li>
+          <li>对接制作、投放、基建与外部模型团队；建立评估、监控告警和发版门禁。</li>
+          <li>推广 Cursor / Claude Code 等编码 Agent，沉淀团队技能、调用规范与算力使用边界。</li>
+        </ul>
+      </article>
+      <article class="work">
+        <div class="job-top"><span class="num">—</span><h3>苏州七步文化传媒有限公司</h3><span class="when">2020.04 – 2023.05</span></div>
+        <p class="sub">软件开发工程师 / 内容总监</p>
+        <ul>
+          <li>软件：为中车交付 Unity 产品展示沙盘与数字人内容（展会现场），形成后续低门槛口播数字人的能力起点；uni-app 企业微信小程序；投放平台后端 / 运维与自动客服。</li>
+          <li>内容：带队完成品牌宣发、MCN 与线下活动（客户含中国中车等）；将拍板、人审节点和验收标准压成可执行流程。</li>
+        </ul>
+      </article>
+      <article class="work">
+        <div class="job-top"><span class="num">—</span><h3>早期履历 · IT之家 / 蜂群</h3><span class="when">2014 – 2017</span></div>
+        <p class="sub">青岛软媒（IT之家）网页与产品 / 栏目主编 · 深圳市蜂群文化传播有限公司 软件开发 / 科技内容运营</p>
+        <ul>
+          <li>负责网页、公众号和实用工具；IT之家「IT黑板报」原创视频新闻栏目主编，为司内最快达到 10 万粉丝的栏目。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section data-screen-label="06 Education">
+      <div class="sec-h"><small>05</small><h2>教育背景</h2></div>
+      <div class="edu">
+        <div>
+          <h3>日本国立北陆先端科学技术大学院大学（JAIST）</h3>
+          <p>理工科硕士 · 知识科学 · 2017.04 – 2020.03<br />课题「关于使用虚拟现实设备降低眩晕度的方法研究」：Unity 实验素材与 demo，Python 统计、神经网络训练和脑机接口胶水层。</p>
+        </div>
+        <div>
+          <h3>太原科技大学</h3>
+          <p>本科 · 电气工程 · 2014 年毕业</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="foot">本页为简历展示稿，可直接用于 GitHub Pages。右下角 Tweaks 可切换纸、墨、蓝图三种气质。</p>
+  </main>
+
+  <button id="tweak-toggle" type="button">Tweaks</button>
+  <aside id="tweaks" aria-label="Tweaks">
+    <h4>Tweaks</h4>
+    <label for="theme">Theme</label>
+    <select id="theme">
+      <option value="paper">纸 · 暖编辑</option>
+      <option value="ink">墨 · 暗工作室</option>
+      <option value="field">蓝图 · 工学</option>
+    </select>
+    <label for="density">Density</label>
+    <select id="density">
+      <option value="regular">疏朗</option>
+      <option value="compact">紧凑</option>
+    </select>
+    <label for="type">Type</label>
+    <select id="type">
+      <option value="serif">衬线主导</option>
+      <option value="sans">黑体主导</option>
+    </select>
+  </aside>
+
+  <script>
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "theme": "paper",
+      "density": "regular",
+      "type": "serif"
+    }/*EDITMODE-END*/;
+
+    const root = document.documentElement;
+    const panel = document.getElementById("tweaks");
+    const saved = JSON.parse(localStorage.getItem("resume-tweaks") || "null") || TWEAK_DEFAULTS;
+
+    function apply(next) {
+      root.dataset.theme = next.theme;
+      root.dataset.density = next.density;
+      root.dataset.type = next.type;
+      document.getElementById("theme").value = next.theme;
+      document.getElementById("density").value = next.density;
+      document.getElementById("type").value = next.type;
+      localStorage.setItem("resume-tweaks", JSON.stringify(next));
+    }
+
+    apply(saved);
+    document.getElementById("tweak-toggle").onclick = () => panel.classList.toggle("open");
+    ["theme", "density", "type"].forEach((id) => {
+      document.getElementById(id).onchange = () => apply({
+        theme: document.getElementById("theme").value,
+        density: document.getElementById("density").value,
+        type: document.getElementById("type").value
+      });
+    });
+  </script>
+</body>
+</html>
