@@ -160,7 +160,7 @@ tailwind.config = {
     </div>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4"><strong class="font-semibold">Agent 编排：</strong>工具调用、多节点 Agent 图、交接协议（Handoff / stuck / 终止）、上下文与记忆；双角色主笔 / 质检做 critique-revise；自研节点编排，不绑死 LangChain。</p>
-      <p><strong class="font-semibold">RAG 与记忆：</strong>PostgreSQL + pgvector、设定库回灌、增量记忆写回；选角 RAG 92 case 上 recall@3=0.346 / recall@5=0.518；向量召回与 LLM 互评回灌配合，支撑长文本改编。</p>
+      <p><strong class="font-semibold">RAG 与记忆：</strong>PostgreSQL + pgvector、设定库回灌、增量记忆写回；选角 RAG 92 case 上 recall@3=0.583 / recall@5=0.812（有 golden 集，能量化、能对比迭代）；向量召回与 LLM 互评回灌配合，支撑长文本改编。</p>
     </div>
     <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
       自研节点编排，不绑死 LangChain。
@@ -233,11 +233,11 @@ tailwind.config = {
     <p class="font-mono text-[11px] text-mute mb-5">React · FastAPI / Go · PostgreSQL + pgvector · Redis · Windmill · 豆包 / DeepSeek</p>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4">10 步改编、16 个 LLM 节点，支持手动 / Handoff / autodrive；双角色主笔 / 质检 + critique-revise 回灌；单剧 1.5–3 小时、人工决策 5–15 分钟，约 30–60 万 token、成本约 ¥30–100。</p>
-      <p class="mb-4">剧本中台做生产级 RAG：docx 行号规范、双轨切分、设定库检索回灌与增量记忆写回；选角 RAG 92 case 上 recall@3=0.346 / recall@5=0.518；script-split API 进入生产，配套 242 项回归。</p>
+      <p class="mb-4">剧本中台做生产级 RAG：docx 行号规范、双轨切分、设定库检索回灌与增量记忆写回；选角 RAG 92 case 上 recall@3=0.583 / recall@5=0.812（有 golden 集，能量化、能对比迭代）；script-split API 进入生产，配套 242 项回归。</p>
       <p>草帽 videotoscript 把成片压成人物 / 场景 / 情节记忆，scriptforge Worker 供翻拍与套拍固定调用；工作台补齐 TTS 多角色配音与分镜切割。</p>
     </div>
     <blockquote class="pull pl-5 py-2 text-lg font-display italic max-w-prose">
-      16 个 LLM 节点 · 单剧 ¥30–100 · recall@3=0.346 / recall@5=0.518。
+      16 个 LLM 节点 · 单剧 ¥30–100 · recall@3=0.583 / recall@5=0.812。
     </blockquote>
   </section>
 
