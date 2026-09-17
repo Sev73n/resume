@@ -241,9 +241,28 @@
       white-space: nowrap;
     }
     .sub {
-      margin: 0.4rem 0 0.6rem 3.4rem;
+      margin: 0.4rem 0 0.45rem 3.4rem;
       color: var(--muted);
       font-size: 0.88rem;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.4rem;
+      margin: 0 0 0.75rem 3.4rem;
+      padding: 0;
+      list-style: none;
+    }
+    .tags li {
+      margin: 0;
+      padding: 0.18rem 0.48rem;
+      border: 1px solid color-mix(in oklch, var(--accent) 35%, var(--rule));
+      background: color-mix(in oklch, var(--panel) 70%, var(--paper));
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
     }
     .job ul, .work ul {
       margin: 0.2rem 0 0 3.4rem;
@@ -309,7 +328,7 @@
       .portrait { width: 92px; height: 92px; }
       .edu, .skills, .sec-h, .job-top { grid-template-columns: 1fr; }
       .facts { grid-template-columns: 1fr; }
-      .job ul, .work ul, .sub { margin-left: 0; }
+      .job ul, .work ul, .sub, .tags { margin-left: 0; }
       .when { white-space: normal; }
       .name { font-size: 2.6rem; }
     }
@@ -373,6 +392,9 @@
       <article class="job">
         <div class="job-top"><span class="num">01</span><h3>漫剧生产平台</h3><span class="when">2025.11 – 至今</span></div>
         <p class="sub">项目产品经理 / 研发主管 · 带队约 10 人 · React / TypeScript 节点画布（@xyflow） · FastAPI / Node.js · Celery · 分布式 Worker · Vidu / Seedance 2.0 · Cursor / Claude Code</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>Agent 编排</li><li>@xyflow</li><li>FastAPI</li><li>Celery</li><li>Seedance 2.0</li><li>人工卡点</li><li>Cursor</li>
+        </ul>
         <ul>
           <li>管线作品登顶腾讯火龙漫剧首发榜：《宗主别撩了：四位尊上要疯了》《钢枪之吻》《诡异降临》《常春藤密室游戏之致命指令》；红果方向约 1 个月 50 部、5000 分钟以上自动产出；另有番茄 / 红果精品《逃出新婚夜》互动剧等。</li>
           <li>将制作流程做成可编排工作流：创意 → 剧本拆解 → 人物设定 → 角色 / 资产生成 → 分镜 → 视频生成 → 验收审计；每个节点有接口、状态、人工卡点和失败恢复；导演 / 制片审核卡在不可逆节点。</li>
@@ -384,6 +406,9 @@
       <article class="job">
         <div class="job-top"><span class="num">02</span><h3>稻草人内容翻拍系统（内容出海翻拍）</h3><span class="when">2025.06 – 至今</span></div>
         <p class="sub">总体架构与核心模块 · React · FastAPI / Go · PostgreSQL + pgvector · Redis · Windmill · 豆包 / DeepSeek</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>Multi-Agent</li><li>pgvector RAG</li><li>critique-revise</li><li>Handoff</li><li>Go</li><li>golden 回归</li>
+        </ul>
         <ul>
           <li>10 步改编、16 个 LLM 节点，支持手动 / Handoff / autodrive；双角色主笔 / 质检 + critique-revise 回灌；单剧 1.5–3 小时、人工决策 5–15 分钟，约 30–60 万 token、成本约 ¥30–100。</li>
           <li>剧本中台做生产级 RAG：docx 行号规范、双轨切分、设定库检索回灌与增量记忆写回；选角 RAG 92 case 上 recall@3=0.583 / recall@5=0.812（有 golden 集，能量化、能对比迭代）；script-split API 进入生产，配套 242 项回归。</li>
@@ -394,6 +419,9 @@
       <article class="job">
         <div class="job-top"><span class="num">03</span><h3>数字人口播与一键分发（独立产品）</h3><span class="when">2025 – 至今</span></div>
         <p class="sub">平台方案与生产交付 · 开源数字人 · FastAPI · TTS · 共用算力基座 · 一键分发</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>开源数字人</li><li>TTS</li><li>FastAPI</li><li>算力租约</li><li>一键分发</li><li>全自动闭环</li>
+        </ul>
         <ul>
           <li>独立于漫剧制作台和聚光灯投流的口播产品：对标内容 → LLM 改稿 → 口播脚本 → TTS 念白 → 开源数字人驱动形象 / 口型 → 成片；默认可全自动闭环。</li>
           <li>采集门槛压到手机手持拍摄、开启美颜即可建模，不走棚拍和建模师；渲染任务进共用算力租约池，与转写、切条成片按项目队列隔离。</li>
@@ -405,6 +433,9 @@
       <article class="job">
         <div class="job-top"><span class="num">04</span><h3>前奏曲（AI 营销贴片自动生成）</h3><span class="when">2025 – 2026.09</span></div>
         <p class="sub">平台方案与生产交付 · FastAPI · MySQL / Redis / MinIO · FFmpeg Worker · 豆包 / DeepSeek / Seedance 2.0</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>ASR</li><li>Seedance 2.0</li><li>FFmpeg Worker</li><li>Manifest 发现</li><li>人工卡点</li><li>审计回滚</li>
+        </ul>
         <ul>
           <li>投放素材 / 原片 → ASR → 钩子脚本 → Seedance 成片 → 字幕 → 审核 → 合并回原片 → 投放 JSON；Agent、人工审核与投放系统按接口交接。</li>
           <li>Worker 按 Manifest 自动发现，覆盖合并 / 转码 / 烧字幕、角色首登场识别、去字幕和黑场 / 首帧 / 短镜头质检。</li>
@@ -415,6 +446,9 @@
       <article class="job">
         <div class="job-top"><span class="num">05</span><h3>算力调度与分布式媒体平台（共用基座，持续运行）</h3><span class="when">2026.01 – 至今</span></div>
         <p class="sub">总体架构与调度 · FastAPI · Temporal · Nomad · Docker · Cyclone 网关 · python-distributed · Windows Worker · FunASR · pgvector</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>Temporal</li><li>Nomad</li><li>GPU 租约</li><li>python-distributed</li><li>Cyclone</li><li>FunASR</li>
+        </ul>
         <ul>
           <li>2026.01 集中建设，之后作为漫剧、翻拍、贴片、数字人、投流的共用后端基座持续运行；转写、贴字、配乐、拉片、数字人渲染、本地 ASR、RAG 检索等 Worker 经任务总线接入，队列状态、接口契约和失败恢复对业务侧可见。</li>
           <li>GPU 租约网关 Reserve → Execute → Release，失败换机最多 3 次；Worker 自描述，按最小 inflight 选路；同一池按峰值错峰，渲染与推理可混部。</li>
@@ -425,6 +459,9 @@
       <article class="job">
         <div class="job-top"><span class="num">06</span><h3>聚光灯（投流素材自动化）</h3><span class="when">2025 – 2026.09</span></div>
         <p class="sub">平台方案与生产交付 · FastAPI · MySQL / Redis / MinIO · FFmpeg · 豆包 / DeepSeek / Seedance 2.0</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>FFmpeg</li><li>critique-revise</li><li>项目级隔离</li><li>看门狗</li><li>发版门禁</li><li>DB outbox</li>
+        </ul>
         <ul>
           <li>原片理解 → 故事产能 → LLM 选片 → FFmpeg 成片 → 人工审核；压测单日 1,562 条成片（约 6,199 分钟），承接 54 个项目，媒体队列 616/616 零失败。</li>
           <li>项目级队列与租约隔离，多项目并行时权限和资源不串；选片走 critique-revise + Schema / 业务校验回灌。</li>
@@ -435,6 +472,9 @@
       <article class="job">
         <div class="job-top"><span class="num">07</span><h3>编码 Agent 工程化体系（团队内部数字员工）</h3><span class="when">2026.05 – 至今</span></div>
         <p class="sub">体系设计与落地 · Python / TypeScript · Gitea · Caddy · Windmill · MCP · Cursor / Claude Code / Kilo</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>MCP</li><li>Caddy</li><li>Windmill</li><li>Gitea Skills</li><li>三段式计费</li><li>Cursor / Claude / Kilo</li>
+        </ul>
         <ul>
           <li>内网 Gitea 建设 30+ 团队 Agent 技能，在 Cursor、Claude Code、Kilo 多运行时双向同步。</li>
           <li>统一适配多种 coding-agent CLI：内部工具经 Windmill 生成后，由 Caddy 做幂等路由与热重载，暴露为内网 HTTP。</li>

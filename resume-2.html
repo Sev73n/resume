@@ -71,6 +71,25 @@ tailwind.config = {
   .sec-num {
     font-variant-numeric: tabular-nums;
   }
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.4rem;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+  .tech-tags li {
+    margin: 0;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #c9b8a0;
+    background: #faf7f0;
+    color: #0a0a0a;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+  }
   a:focus-visible {
     outline: 2px solid #8b1e1e;
     outline-offset: 3px;
@@ -205,7 +224,10 @@ tailwind.config = {
       <h2 class="font-display text-3xl md:text-4xl font-bold">项目① 漫剧生产平台</h2>
     </div>
     <p class="font-mono text-xs text-mute tracking-wide mb-4">2025.11 – 至今　｜　项目产品经理 / 研发主管　｜　带队约 10 人</p>
-    <p class="font-mono text-[11px] text-mute mb-5">React / TypeScript 节点画布（@xyflow） · FastAPI / Node.js · Celery · 分布式 Worker · Vidu / Seedance 2.0 · Cursor / Claude Code</p>
+    <p class="font-mono text-[11px] text-mute mb-3">React / TypeScript 节点画布（@xyflow） · FastAPI / Node.js · Celery · 分布式 Worker · Vidu / Seedance 2.0 · Cursor / Claude Code</p>
+    <ul class="tech-tags" aria-label="技术关键词">
+      <li>Agent 编排</li><li>@xyflow</li><li>FastAPI</li><li>Celery</li><li>Seedance 2.0</li><li>人工卡点</li><li>Cursor</li>
+    </ul>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4">将制作流程做成可编排工作流：创意 → 剧本拆解 → 人物设定 → 角色 / 资产生成 → 分镜 → 视频生成 → 验收审计；每个节点有接口、状态、人工卡点和失败恢复；导演 / 制片审核卡在不可逆节点。</p>
       <p class="mb-4">角色资产生成走 Celery 生图队列，视频与验收走分布式 Worker；节点协议、校验和 Worker 技能用 Cursor / Claude Code 沉淀，并与团队技能库同步。</p>
@@ -230,7 +252,10 @@ tailwind.config = {
       <h2 class="font-display text-3xl md:text-4xl font-bold">项目② 稻草人内容翻拍系统</h2>
     </div>
     <p class="font-mono text-xs text-mute tracking-wide mb-4">2025.06 – 至今　｜　总体架构与核心模块 · 内容出海翻拍</p>
-    <p class="font-mono text-[11px] text-mute mb-5">React · FastAPI / Go · PostgreSQL + pgvector · Redis · Windmill · 豆包 / DeepSeek</p>
+    <p class="font-mono text-[11px] text-mute mb-3">React · FastAPI / Go · PostgreSQL + pgvector · Redis · Windmill · 豆包 / DeepSeek</p>
+    <ul class="tech-tags" aria-label="技术关键词">
+      <li>Multi-Agent</li><li>pgvector RAG</li><li>critique-revise</li><li>Handoff</li><li>Go</li><li>golden 回归</li>
+    </ul>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4">10 步改编、16 个 LLM 节点，支持手动 / Handoff / autodrive；双角色主笔 / 质检 + critique-revise 回灌；单剧 1.5–3 小时、人工决策 5–15 分钟，约 30–60 万 token、成本约 ¥30–100。</p>
       <p class="mb-4">剧本中台做生产级 RAG：docx 行号规范、双轨切分、设定库检索回灌与增量记忆写回；选角 RAG 92 case 上 recall@3=0.583 / recall@5=0.812（有 golden 集，能量化、能对比迭代）；script-split API 进入生产，配套 242 项回归。</p>
@@ -248,7 +273,10 @@ tailwind.config = {
       <h2 class="font-display text-3xl md:text-4xl font-bold">项目③ 数字人口播与一键分发</h2>
     </div>
     <p class="font-mono text-xs text-mute tracking-wide mb-4">2025 – 至今　｜　平台方案与生产交付 · 独立产品</p>
-    <p class="font-mono text-[11px] text-mute mb-5">开源数字人 · FastAPI · TTS · 共用算力基座 · 一键分发</p>
+    <p class="font-mono text-[11px] text-mute mb-3">开源数字人 · FastAPI · TTS · 共用算力基座 · 一键分发</p>
+    <ul class="tech-tags" aria-label="技术关键词">
+      <li>开源数字人</li><li>TTS</li><li>FastAPI</li><li>算力租约</li><li>一键分发</li><li>全自动闭环</li>
+    </ul>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4">独立于漫剧制作台和聚光灯投流的口播产品：对标内容 → LLM 改稿 → 口播脚本 → TTS 念白 → 开源数字人驱动形象 / 口型 → 成片；默认可全自动闭环。</p>
       <p class="mb-4">采集门槛压到手机手持拍摄、开启美颜即可建模，不走棚拍和建模师；渲染任务进共用算力租约池，与转写、切条成片按项目队列隔离。</p>
@@ -267,7 +295,10 @@ tailwind.config = {
       <h2 class="font-display text-3xl md:text-4xl font-bold">项目④ 前奏曲 · AI 营销贴片</h2>
     </div>
     <p class="font-mono text-xs text-mute tracking-wide mb-4">2025 – 2026.09　｜　平台方案与生产交付</p>
-    <p class="font-mono text-[11px] text-mute mb-5">FastAPI · MySQL / Redis / MinIO · FFmpeg Worker · 豆包 / DeepSeek / Seedance 2.0</p>
+    <p class="font-mono text-[11px] text-mute mb-3">FastAPI · MySQL / Redis / MinIO · FFmpeg Worker · 豆包 / DeepSeek / Seedance 2.0</p>
+    <ul class="tech-tags" aria-label="技术关键词">
+      <li>ASR</li><li>Seedance 2.0</li><li>FFmpeg Worker</li><li>Manifest 发现</li><li>人工卡点</li><li>审计回滚</li>
+    </ul>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4">投放素材 / 原片 → ASR → 钩子脚本 → Seedance 成片 → 字幕 → 审核 → 合并回原片 → 投放 JSON；Agent、人工审核与投放系统按接口交接。</p>
       <p class="mb-4">Worker 按 Manifest 自动发现，覆盖合并 / 转码 / 烧字幕、角色首登场识别、去字幕和黑场 / 首帧 / 短镜头质检。</p>
@@ -285,7 +316,10 @@ tailwind.config = {
       <h2 class="font-display text-3xl md:text-4xl font-bold">项目⑤ 算力调度与分布式媒体平台</h2>
     </div>
     <p class="font-mono text-xs text-mute tracking-wide mb-4">2026.01 – 至今　｜　总体架构与调度 · 共用基座，持续运行</p>
-    <p class="font-mono text-[11px] text-mute mb-5">FastAPI · Temporal · Nomad · Docker · Cyclone 网关 · python-distributed · Windows Worker · FunASR · pgvector</p>
+    <p class="font-mono text-[11px] text-mute mb-3">FastAPI · Temporal · Nomad · Docker · Cyclone 网关 · python-distributed · Windows Worker · FunASR · pgvector</p>
+    <ul class="tech-tags" aria-label="技术关键词">
+      <li>Temporal</li><li>Nomad</li><li>GPU 租约</li><li>python-distributed</li><li>Cyclone</li><li>FunASR</li>
+    </ul>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4">2026.01 集中建设，之后作为漫剧、翻拍、贴片、数字人、投流的共用后端基座持续运行；转写、贴字、配乐、拉片、数字人渲染、本地 ASR、RAG 检索等 Worker 经任务总线接入，队列状态、接口契约和失败恢复对业务侧可见。</p>
       <p class="mb-4">GPU 租约网关 Reserve → Execute → Release，失败换机最多 3 次；Worker 自描述，按最小 inflight 选路；同一池按峰值错峰，渲染与推理可混部。</p>
@@ -303,7 +337,10 @@ tailwind.config = {
       <h2 class="font-display text-3xl md:text-4xl font-bold">项目⑥ 聚光灯 · 投流素材自动化</h2>
     </div>
     <p class="font-mono text-xs text-mute tracking-wide mb-4">2025 – 2026.09　｜　平台方案与生产交付</p>
-    <p class="font-mono text-[11px] text-mute mb-5">FastAPI · MySQL / Redis / MinIO · FFmpeg · 豆包 / DeepSeek / Seedance 2.0</p>
+    <p class="font-mono text-[11px] text-mute mb-3">FastAPI · MySQL / Redis / MinIO · FFmpeg · 豆包 / DeepSeek / Seedance 2.0</p>
+    <ul class="tech-tags" aria-label="技术关键词">
+      <li>FFmpeg</li><li>critique-revise</li><li>项目级隔离</li><li>看门狗</li><li>发版门禁</li><li>DB outbox</li>
+    </ul>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4">原片理解 → 故事产能 → LLM 选片 → FFmpeg 成片 → 人工审核；压测单日 1,562 条成片（约 6,199 分钟），承接 54 个项目，媒体队列 616/616 零失败。</p>
       <p class="mb-4">项目级队列与租约隔离，多项目并行时权限和资源不串；选片走 critique-revise + Schema / 业务校验回灌。</p>
@@ -321,7 +358,10 @@ tailwind.config = {
       <h2 class="font-display text-3xl md:text-4xl font-bold">项目⑦ 编码 Agent 工程化体系</h2>
     </div>
     <p class="font-mono text-xs text-mute tracking-wide mb-4">2026.05 – 至今　｜　体系设计与落地 · 团队内部数字员工</p>
-    <p class="font-mono text-[11px] text-mute mb-5">Python / TypeScript · Gitea · Caddy · Windmill · MCP · Cursor / Claude Code / Kilo</p>
+    <p class="font-mono text-[11px] text-mute mb-3">Python / TypeScript · Gitea · Caddy · Windmill · MCP · Cursor / Claude Code / Kilo</p>
+    <ul class="tech-tags" aria-label="技术关键词">
+      <li>MCP</li><li>Caddy</li><li>Windmill</li><li>Gitea Skills</li><li>三段式计费</li><li>Cursor / Claude / Kilo</li>
+    </ul>
     <div class="col-2 text-[15px] leading-[1.75] mb-6">
       <p class="mb-4">内网 Gitea 建设 30+ 团队 Agent 技能，在 Cursor、Claude Code、Kilo 多运行时双向同步。</p>
       <p class="mb-4">统一适配多种 coding-agent CLI：内部工具经 Windmill 生成后，由 Caddy 做幂等路由与热重载，暴露为内网 HTTP。</p>
