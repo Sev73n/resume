@@ -1,7 +1,5 @@
 # 王麒森
 
-![王麒森](resume-photo.jpg)
-
 **求职意向：** AI Agent 工程师（Agent开发 · 编排 / 产品工具落地 · RAG · 短剧漫剧AI工具 · 网站全栈开发 · 分布式推理 / 媒体算力）
 
 电话：15614668674 ｜ 邮箱：[king73lin@foxmail.com](mailto:king73lin@foxmail.com) ｜ GitHub：[github.com/Sev73n](https://github.com/Sev73n)
