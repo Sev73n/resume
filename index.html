@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>王麒森 · AI Agent 全栈工程师</title>
+  <title>王麒森 · AI Agent 工程师</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -317,6 +317,18 @@
     #tweaks label { display: block; margin: 0.55rem 0 0.2rem; font-size: 0.7rem; font-family: var(--mono); color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
     #tweaks select { width: 100%; padding: 0.4rem; background: var(--panel); color: var(--ink); border: 1px solid var(--rule); font: inherit; }
 
+
+    .job ul.tags li::before { display: none; }
+    .job ul.tags li { padding-left: 0.48rem; }
+    .tags.flush { margin-left: 0; }
+    .stack-h {
+      margin: 1.2rem 0 0.55rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     @media (max-width: 900px) {
       .facts { grid-template-columns: 1fr 1fr; }
       .mast { grid-template-columns: 1fr 168px; }
@@ -348,7 +360,7 @@
       <div>
         <p class="kicker">王麒森 · Kaysen Wang</p>
         <h1 class="name">王麒森</h1>
-        <p class="role">AI Agent 全栈工程师<br />智能体编排 / RAG / 生产落地</p>
+        <p class="role">AI Agent 工程师<br />Agent 开发 · 短剧 / 漫剧 AI 工具 · RAG · 分布式推理 / 媒体算力</p>
         <ul class="contact">
           <li>苏州 · 约 9 年 · 理工科硕士</li>
           <li><a href="tel:15614668674">15614668674</a></li>
@@ -359,139 +371,215 @@
       <figure class="portrait-wrap">
         <img class="portrait" src="resume-photo.jpg" alt="王麒森" width="208" height="208" />
       </figure>
-      <p class="lead">工龄约 9 年（2014–2017、2020 至今；2017–2020 赴日读研），理工科硕士。近两年以项目产品经理 / 研发主管带约 10 人（制作 / 工程），负责内部 Agent 的问题定义与全栈落地：默认可自动推进，不可逆节点强制人工卡点。</p>
+      <p class="lead">近两年以项目产品经理 / 研发主管带约 10 人（制作 / 工程），负责短剧 / 漫剧 AI 工具与网站的问题定义和全栈落地：把长链路内容生产做成可编排、可评估、可调度的系统，并建设分布式推理 / 媒体算力。钉钉 / 飞书 / 微信 / Telegram 的双向多轮（接入 OpenClaw）作为多端交互入口，工具网页产品化后前后端分离，使用 SaaS 服务分发。</p>
     </header>
 
     <section data-screen-label="02 Overview">
       <div class="sec-h"><small>01</small><h2>个人概述</h2></div>
-      <p>近两年负责内部 Agent 的问题定义与全栈落地，覆盖出海改编、漫剧制作、营销贴片、数字人口播到投流运营。默认可自动推进，不可逆节点强制人工卡点。</p>
+      <p>工龄约 9 年（2014–2017、2020 至今；2017–2020 赴日读研），理工科硕士。工具网页产品化、前后端分离、SaaS 分发；IM 作为多端交互入口。</p>
       <dl class="facts">
-        <div><dt>改编吞吐</dt><dd>出海改编单剧 1.5–3 小时（人工决策 5–15 分钟，约 30–60 万 token / ¥30–100）。</dd></div>
-        <div><dt>投流吞吐</dt><dd>压测单日 1,562 条成片（约 6,199 分钟），54 个项目、媒体队列 616/616 零失败。</dd></div>
-        <div><dt>商业结果</dt><dd>管线作品登顶腾讯火龙漫剧首发榜；红果方向约 1 个月 50 部、5000 分钟以上自动产出；番茄 / 红果精品《逃出新婚夜》互动剧等。</dd></div>
-        <div><dt>工程资产</dt><dd>剧本拆分 API 配套 242 项回归；30+ 团队技能在 Cursor / Claude Code / Kilo 同步；数字人、ASR、RAG 与视频渲染走持续运行的共用算力基座。</dd></div>
+        <div><dt>Agent 能力</dt><dd>10 步 / 16 节点改编与制作图编排，Skill / MCP 工具调用；OpenClaw 接到四端 IM 做双向多轮。单剧 1.5–3 小时（人工决策 5–15 分钟，约 30–60 万 token / ¥30–100）。</dd></div>
+        <div><dt>RAG 能力</dt><dd>故事骨架 / 剧本 / 人物图像资产检索与记忆写回；92 case 上 recall@3=0.583 / recall@5=0.812（有 golden 集）；切分 API 242 项回归进生产。</dd></div>
+        <div><dt>全栈能力</dt><dd>工具做成前后端分离的网页产品，经 SaaS 分发；React / TypeScript / Node.js 工作台 + Python / FastAPI / Go 服务；GPU 租约、队列与对象存储撑起分布式推理 / 媒体算力。</dd></div>
+        <div><dt>商业落地</dt><dd>管线作品登顶腾讯火龙漫剧首发榜（《宗主别撩了：四位尊上要疯了》等四部）；红果方向约 1 个月 50 部、5000 分钟以上自动产出；投流压测单日 1,562 条成片，54 个项目。</dd></div>
       </dl>
     </section>
 
     <section data-screen-label="03 Skills">
       <div class="sec-h"><small>02</small><h2>核心能力</h2></div>
-      <dl class="skills">
-        <dt>Agent 编排</dt><dd>工具调用、多节点 Agent 图、交接协议（Handoff / stuck / 终止）、上下文与记忆；双角色主笔 / 质检做 critique-revise；自研节点编排，不绑死 LangChain。</dd>
-        <dt>RAG 与记忆</dt><dd>PostgreSQL + pgvector、设定库回灌、增量记忆写回；选角 RAG 92 case 上 recall@3=0.583 / recall@5=0.812（有 golden 集，能量化、能对比迭代）；向量召回与 LLM 互评回灌配合，支撑长文本改编。</dd>
-        <dt>评估与护栏</dt><dd>内容红线、golden 回归、全链路审计、监控告警、看门狗自愈；script-split 242 项回归，聚光灯 r1–r110 发版门禁。</dd>
-        <dt>算力调度</dt><dd>Temporal 工作流引擎、Nomad 落机、GPU 租约 Reserve → Execute → Release（失败换机最多 3 次）、按最小 inflight 选路；项目级队列与租约隔离。</dd>
-        <dt>编码 Agent</dt><dd>Cursor、Claude Code、Kilo 多运行时；MCP 工具化；工作流封装为 Agent 可检索工具。</dd>
-        <dt>全栈交付</dt><dd>Python / FastAPI、Go、React / TypeScript、PostgreSQL + pgvector / MySQL / Redis、MinIO、Docker、Celery、Windmill。早期栈含 Unity、uni-app、微信小程序。</dd>
-        <dt>带队与收需求</dt><dd>近两年带约 10 人（制作 / 工程）；对接制作、投放、基建与模型团队，把不完整需求收成接口、状态和交付计划。</dd>
-      </dl>
+
+      <article class="job">
+        <div class="job-top"><span class="num">01</span><h3>检索与记忆工程</h3><span class="when">能力</span></div>
+        <p class="sub">按任务拆检索对象、切分、召回、重排和记忆写回，检索效果可评估，而不是只接一个向量库。</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>pgvector</li><li>双轨切分</li><li>增量记忆</li><li>golden</li><li>recall@k</li><li>多模态检索</li><li>元搜索</li>
+        </ul>
+        <ul>
+          <li>剧本设定走双轨切分与行号对齐，设定库回灌、增量记忆写回；切分作为生产 API 被下游固定调用，配套 242 项回归（剧本入库与切分）。</li>
+          <li>人物图上传后做多模态提取、向量检索与重排；92 case 上 recall@3=0.583 / recall@5=0.812，有 golden 集，能对比迭代（人物资产检索）。</li>
+          <li>成片压成人物 / 场景 / 情节记忆再检索；投流选片是「故事骨架检索 + 模型互评」；Agent 也可调用内网元搜索补公开信息（视听记忆 / 投流选片）。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">02</span><h3>提示词与结构化控制</h3><span class="when">能力</span></div>
+        <p class="sub">提示词是可版本、可校验、可回灌的控制面，不是聊天框里的一段话。</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>JSON / Schema</li><li>提示词版本流</li><li>上下文压缩</li><li>MCP</li><li>运镜 Skills</li><li>结构化回灌</li>
+        </ul>
+        <ul>
+          <li>按节点拆角色提示词：改编、资产抽取、生图、生视频、口播改稿、15 秒钩子；从剧本抽资产后生成生图提示词并纳入版本流（改编工作台 / 漫剧制作台）。</li>
+          <li>JSON / Schema 与业务规则校验失败则带着错误结构回写，而不是只报错结束；投放闭环输出结构化字段（投流选片 / 前贴生成）。</li>
+          <li>单剧 30–60 万 token 做装配与压缩（长对话按分集边界收敛）；视频提示词和白模 MCP 控制、运镜 Skills 等参考资产按同一套约束出（改编 / 分镜参考）。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">03</span><h3>Agent 编排与多智能体</h3><span class="when">能力</span></div>
+        <p class="sub">自研业务状态、交接协议和人工卡点，换模型、换画布不必先迁一套框架。短任务脚本化，长链路交给模型，人只卡不可逆节点。</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>状态机</li><li>Handoff</li><li>critique-revise</li><li>HITL</li><li>Skill</li><li>MCP</li><li>React 工作台</li>
+        </ul>
+        <ul>
+          <li>改编流水线 10 步、16 个 LLM 节点，按节点状态机推进，支持手动 / 交接 / 自动巡航；Handoff 带走上下文和未决决策，stuck 与终止可恢复、可审计（出海剧本改编）。</li>
+          <li>双角色主笔 / 质检做 critique-revise；React 制作台 / 审核后台独立交付，节点状态直接打到画布；抽取、改编、出片按任务分模型（改编 / 漫剧制作台）。</li>
+          <li>在 Claude Code / Cursor / Kilo 等 Agent Runtime 上建设 30+ 团队 Skill，多运行时同步；内部工作流经 HTTP / MCP 目录供 Agent 检索调用。编码 Agent 只加速协议与技能，不作为线上 Runtime（团队编码 Agent）。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">04</span><h3>知识资产生命周期</h3><span class="when">能力</span></div>
+        <p class="sub">把剧本、成片、人设和图像从文件变成可检索、可约束生成的设定层，并支持增量更新。</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>docx 入库</li><li>向量库</li><li>多模态提取</li><li>MinIO</li><li>云存储双写</li><li>增量嵌入</li>
+        </ul>
+        <ul>
+          <li>剧本 docx 经行号规范、双轨切分进入向量库；成片 / 漫画可转入人物、场景、情节记忆，供改编和套拍回查（剧本中台 / 视听转写）。</li>
+          <li>人设、人物图、场景与道具抽取后入库；人物库本机对象存储主读写，公网图双写云存储（人物资产 / 漫剧资产）。</li>
+          <li>共用对象存储承载素材、成片与知识库文件约 1.2T；新设定增量写回，避免每次全量重嵌（内网对象存储）。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">05</span><h3>Agent 运行时与全栈底座</h3><span class="when">能力</span></div>
+        <p class="sub">Agent 是带租约、选路、回落和长事务的服务；内网把原型、任务、模型和存储收成可调用底座。</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>GPU 租约</li><li>任务队列</li><li>工作流引擎</li><li>模型网关</li><li>Docker / Compose</li><li>Redis</li><li>Git + Skills</li>
+        </ul>
+        <ul>
+          <li>收口工作流原型、异步任务运行时、模型网关；统筹内网 Git 内容管理与团队 skills 技术沉淀统一入口，并做跨地域解析。短任务走工作流运行时，长任务走 GPU 租约；网关按任务类型选模，失败可切备用模型（内网 Agent 底座）。</li>
+          <li>控制面拆两层：任务进队列，按进行中任务数选 Worker；GPU 网关 Reserve → Execute → Release，失败换机最多 3 次。跨服务、过人工卡点的长任务用工作流引擎接着跑（媒体算力调度）。</li>
+          <li>生产 / 测试域名分开，Git + Compose 发版；转写按文件指纹缓存，热数据走 Redis；坏机器隔离后再接活。成片和素材先落本机对象存储，对外交付走云存储，必要时换备用云（投流 / 算力 / 资产）。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">06</span><h3>评估、护栏与生产闭环</h3><span class="when">能力</span></div>
+        <p class="sub">能证明 Agent 变好还是变差，并把失败归到模型、检索、工具或工作流；坏结果进不了生产。</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>golden</li><li>可靠投递</li><li>看门狗</li><li>人审卡点</li><li>发版门禁</li><li>失败归因</li>
+        </ul>
+        <ul>
+          <li>检索有 golden 与 recall@k；切分回归进生产；投流发版走门禁（r1–r110）。失败能回看卡在哪一步：选片胡切、检索没命中、还是调度把机器租死（人物检索 / 切分 API / 投流成片）。</li>
+          <li>选片与改编用模型互评 + Schema / 业务校验回灌；内容红线、黑场 / 短镜头等质检卡在不可逆节点（改编 / 投流 / 制作台）。</li>
+          <li>任务先落库再投递（可靠投递），媒体队列按项目建模，库锁抢活避免双投；看门狗收回死租约；导演 / 制片 / 投放审核未通过，成片不进分发或投放（投流 / 数字人口播）。</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top"><span class="num">07</span><h3>通道、工具与第三方接入</h3><span class="when">能力</span></div>
+        <p class="sub">制作和投放的人已经在钉钉 / 飞书 / 微信里干活，Agent 接到这些会话里，工具按需调用，而不是再做一个聊天站。</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>OpenClaw</li><li>钉钉</li><li>飞书</li><li>微信</li><li>Telegram</li><li>Tool Calling</li><li>元搜索</li><li>无头浏览</li>
+        </ul>
+        <ul>
+          <li>接入 OpenClaw（不自研 Runtime），打通钉钉 / 飞书 / 微信 / Telegram：双向收发、多轮会话，会话接到内部工具目录（多 IM 通道）。</li>
+          <li>业务侧钉钉 / 飞书继续做排期、审批和群通知，和制作知识库对着，不是只推一条消息（制作协同）。</li>
+          <li>工具目录里有元搜索、网页抓取和模型网关；工作台流程和 IM 会话用同一套工具，按 Tool Calling 调用（搜索 / 浏览 / 模型调度）。</li>
+        </ul>
+      </article>
+
+      <p class="stack-h">工程栈</p>
+      <ul class="tags flush" aria-label="工程栈">
+        <li>Python</li><li>FastAPI</li><li>TypeScript</li><li>React</li><li>Vite</li><li>Node.js</li><li>Go</li>
+        <li>PostgreSQL</li><li>pgvector</li><li>MySQL</li><li>Redis</li><li>MinIO</li>
+        <li>Docker</li><li>Compose</li><li>任务队列</li><li>工作流引擎</li><li>统一模型网关</li>
+        <li>Electron</li><li>MCP</li><li>OpenClaw</li>
+      </ul>
     </section>
 
     <section data-screen-label="04 Projects">
       <div class="sec-h"><small>03</small><h2>项目经历</h2></div>
 
       <article class="job">
-        <div class="job-top"><span class="num">01</span><h3>漫剧生产平台</h3><span class="when">2025.11 – 至今</span></div>
-        <p class="sub">项目产品经理 / 研发主管 · 带队约 10 人 · React / TypeScript 节点画布（@xyflow） · FastAPI / Node.js · Celery · 分布式 Worker · Vidu / Seedance 2.0 · Cursor / Claude Code</p>
+        <div class="job-top"><span class="num">01</span><h3>漫剧全流程制作台</h3><span class="when">2025.11 – 至今</span></div>
+        <p class="sub">项目产品经理 / 研发主管 · 带队约 10 人 · React / TypeScript / Node.js · 节点画布 · FastAPI · 生图队列 · 分布式 Worker</p>
         <ul class="tags" aria-label="技术关键词">
-          <li>Agent 编排</li><li>@xyflow</li><li>FastAPI</li><li>Celery</li><li>Seedance 2.0</li><li>人工卡点</li><li>Cursor</li>
+          <li>React</li><li>TypeScript</li><li>Node.js</li><li>FastAPI</li><li>节点画布</li><li>@xyflow</li><li>生图队列</li><li>Celery</li><li>分布式 Worker</li><li>人工卡点</li><li>Skill</li><li>视频生成模型</li>
         </ul>
         <ul>
-          <li>管线作品登顶腾讯火龙漫剧首发榜：《宗主别撩了：四位尊上要疯了》《钢枪之吻》《诡异降临》《常春藤密室游戏之致命指令》；红果方向约 1 个月 50 部、5000 分钟以上自动产出；另有番茄 / 红果精品《逃出新婚夜》互动剧等。</li>
-          <li>将制作流程做成可编排工作流：创意 → 剧本拆解 → 人物设定 → 角色 / 资产生成 → 分镜 → 视频生成 → 验收审计；每个节点有接口、状态、人工卡点和失败恢复；导演 / 制片审核卡在不可逆节点。</li>
-          <li>角色资产生成走 Celery 生图队列，视频与验收走分布式 Worker；节点协议、校验和 Worker 技能用 Cursor / Claude Code 沉淀，并与团队技能库同步。</li>
-          <li>2026.02 起配合火山引擎做 Seedance 2.0 调参，半自动管线改为默认可自动推进，并补齐 GPU 质检 / 违规打码、投放、二创与贴片 / 配乐。</li>
+          <li>管线作品登顶腾讯火龙漫剧首发榜：《宗主别撩了：四位尊上要疯了》《钢枪之吻》《诡异降临》《常春藤密室游戏之致命指令》；红果方向约 1 个月 50 部、5000 分钟以上自动产出；另有番茄 / 红果精品互动剧。</li>
+          <li>制作流程做成可编排工作流：创意 → 剧本拆解 → 人物设定 → 资产生成 → 分镜 → 视频生成 → 验收；每个节点有接口、状态、人工卡点和失败恢复；导演 / 制片审核卡在不可逆节点。</li>
+          <li>生图走短任务队列，视频与验收走分布式 Worker；节点协议与校验沉淀进团队 Skill。2026.02 起配合视频生成模型调参，管线改为默认可自动推进，并补齐质检 / 打码、投放、二创与贴片 / 配乐。</li>
         </ul>
       </article>
 
       <article class="job">
-        <div class="job-top"><span class="num">02</span><h3>制作分镜白模自动演出系统（Seedance 2.5 参考生视频）</h3><span class="when">2026.08 – 至今</span></div>
-        <p class="sub">总体架构与核心交付 · Electron / React / Zustand · Three.js · 高斯泼溅 · Vite / electron-vite · Vitest / Playwright · ESLint / TypeScript ESLint</p>
+        <div class="job-top"><span class="num">02</span><h3>分镜白模与运镜参考</h3><span class="when">2026.08 – 至今</span></div>
+        <p class="sub">总体架构与核心交付 · Electron / React · Vite · 三维白模 · MCP / Skills</p>
         <ul class="tags" aria-label="技术关键词">
-          <li>Electron</li><li>Three.js</li><li>高斯泼溅</li><li>Zustand</li><li>Seedance 2.5</li><li>SSO</li><li>Vite</li>
+          <li>Electron</li><li>React</li><li>Vite</li><li>三维白模</li><li>Three.js</li><li>MCP</li><li>Skills</li><li>SSO</li>
         </ul>
         <ul>
-          <li>面向 Seedance 2.5 参考生视频：剧本解析 → 故事剧情拆解 → 分镜拆场 → 每场生成分镜内容、白模与镜头运动控制；输出静帧参考与运镜视频，提升成片一致性。</li>
-          <li>桌面端提供镜头与运镜手动调整窗口，支持在自动生成结果上精修机位、轨迹与节奏后再导出参考资产。</li>
-          <li>接入 SaaS 单点登录（SSO）与内网认证；工程栈含 Vite / electron-vite 构建，Vitest / Playwright 测试，ESLint / TypeScript ESLint 门禁。</li>
+          <li>剧本解析 → 剧情拆解 → 分镜拆场 → 每场出分镜、白模与镜头运动；输出静帧参考与运镜视频，给后续生视频用。</li>
+          <li>白模机位与运镜由 MCP / Skills 约束，桌面端可在自动结果上精修轨迹与节奏后再导出。</li>
+          <li>接入 SaaS 单点登录与内网认证。</li>
         </ul>
       </article>
 
       <article class="job">
-        <div class="job-top"><span class="num">03</span><h3>稻草人内容翻拍系统（内容出海翻拍）</h3><span class="when">2025.06 – 至今</span></div>
-        <p class="sub">总体架构与核心模块 · React · FastAPI / Go · PostgreSQL + pgvector · Redis · Windmill · 豆包 / DeepSeek</p>
+        <div class="job-top"><span class="num">03</span><h3>出海剧本改编与剧本中台</h3><span class="when">2025.06 – 至今</span></div>
+        <p class="sub">总体架构与核心模块 · React · FastAPI / Go · PostgreSQL + pgvector · Redis</p>
         <ul class="tags" aria-label="技术关键词">
-          <li>Multi-Agent</li><li>pgvector RAG</li><li>critique-revise</li><li>Handoff</li><li>Go</li><li>golden 回归</li>
+          <li>React</li><li>FastAPI</li><li>Go</li><li>pgvector</li><li>Redis</li><li>Multi-Agent</li><li>Handoff</li><li>RAG</li><li>golden</li><li>TTS</li>
         </ul>
         <ul>
-          <li>10 步改编、16 个 LLM 节点，支持手动 / Handoff / autodrive；双角色主笔 / 质检 + critique-revise 回灌；单剧 1.5–3 小时、人工决策 5–15 分钟，约 30–60 万 token、成本约 ¥30–100。</li>
-          <li>剧本中台做生产级 RAG：docx 行号规范、双轨切分、设定库检索回灌与增量记忆写回；选角 RAG 92 case 上 recall@3=0.583 / recall@5=0.812（有 golden 集，能量化、能对比迭代）；script-split API 进入生产，配套 242 项回归。</li>
-          <li>草帽 videotoscript 把成片压成人物 / 场景 / 情节记忆，scriptforge Worker 供翻拍与套拍固定调用；工作台补齐 TTS 多角色配音与分镜切割。</li>
+          <li>10 步改编、16 个 LLM 节点，手动 / 交接 / 自动巡航；双角色主笔 / 质检回灌；单剧 1.5–3 小时，人工决策 5–15 分钟，约 30–60 万 token / ¥30–100。</li>
+          <li>剧本中台做生产级检索：docx 行号、双轨切分、设定回灌与增量记忆；人物资产 92 case 上 recall@3=0.583 / recall@5=0.812；切分 API 进生产，242 项回归。</li>
+          <li>成片转成人物 / 场景 / 情节记忆，供翻拍与套拍固定调用；工作台补齐多角色配音与分镜切割。</li>
         </ul>
       </article>
 
       <article class="job">
-        <div class="job-top"><span class="num">04</span><h3>数字人口播与一键分发（独立产品）</h3><span class="when">2025 – 至今</span></div>
-        <p class="sub">平台方案与生产交付 · 开源数字人 · FastAPI · TTS · 共用算力基座 · 一键分发</p>
+        <div class="job-top"><span class="num">04</span><h3>数字人口播与社交媒体一键分发</h3><span class="when">2025 – 至今</span></div>
+        <p class="sub">平台方案与生产交付 · 开源数字人 · FastAPI · TTS · 共用算力租约</p>
         <ul class="tags" aria-label="技术关键词">
-          <li>开源数字人</li><li>TTS</li><li>FastAPI</li><li>算力租约</li><li>一键分发</li><li>全自动闭环</li>
+          <li>开源数字人</li><li>TTS</li><li>FastAPI</li><li>GPU 租约</li><li>账号矩阵</li><li>视频号</li><li>小红书</li><li>抖音</li><li>大众点评</li><li>人审</li>
         </ul>
         <ul>
-          <li>独立于漫剧制作台和聚光灯投流的口播产品：对标内容 → LLM 改稿 → 口播脚本 → TTS 念白 → 开源数字人驱动形象 / 口型 → 成片；默认可全自动闭环。</li>
-          <li>采集门槛压到手机手持拍摄、开启美颜即可建模，不走棚拍和建模师；渲染任务进共用算力租约池，与转写、切条成片按项目队列隔离。</li>
-          <li>成片一键分发至视频号 / 小红书 / 抖音 / 大众点评；与制作 Agent、审核、投放按接口交接，未审成片不进分发。</li>
-          <li>与七步时期为客户中车做的 Unity 展会数字人不是同一套：那是现场演示内容，这是生产级口播分发产品。</li>
+          <li>对标内容或一句话需求 → 改稿 → 口播脚本 → TTS 念白 → 数字人驱动形象 / 口型 → 成片；默认可全自动，人审未过不进分发。</li>
+          <li>采集压到手机手持拍摄、开美颜即可建模，不走棚拍和建模师；渲染进共用 GPU 租约，与转写、切条按项目队列隔离，避免口播把投流队列打满。</li>
+          <li>过审后按账号矩阵一键分到视频号 / 小红书 / 抖音 / 大众点评：标题、封面、正文、话题一次填，失败按平台重试，已过审成片不回滚。</li>
+          <li>和早期展会数字人分开：七步为中车做的是现场演示、预渲染播放；本条是给运营日更用的生产口播，卡在人审和分发接口，不和制作台、投流切条混成一个产品。</li>
         </ul>
       </article>
 
       <article class="job">
-        <div class="job-top"><span class="num">05</span><h3>前奏曲（AI 营销贴片自动生成）</h3><span class="when">2025 – 2026.09</span></div>
-        <p class="sub">平台方案与生产交付 · FastAPI · MySQL / Redis / MinIO · FFmpeg Worker · 豆包 / DeepSeek / Seedance 2.0</p>
+        <div class="job-top"><span class="num">05</span><h3>投流高光成片与投放 AI 前贴</h3><span class="when">2025 – 2026.09</span></div>
+        <p class="sub">平台方案与生产交付 · FastAPI · MySQL / Redis / MinIO · FFmpeg · 生成模型</p>
         <ul class="tags" aria-label="技术关键词">
-          <li>ASR</li><li>Seedance 2.0</li><li>FFmpeg Worker</li><li>Manifest 发现</li><li>人工卡点</li><li>审计回滚</li>
+          <li>FastAPI</li><li>MySQL</li><li>Redis</li><li>MinIO</li><li>FFmpeg</li><li>生成模型</li><li>ASR</li><li>Schema</li><li>可靠投递</li><li>看门狗</li><li>r1–r110</li>
         </ul>
         <ul>
-          <li>投放素材 / 原片 → ASR → 钩子脚本 → Seedance 成片 → 字幕 → 审核 → 合并回原片 → 投放 JSON；Agent、人工审核与投放系统按接口交接。</li>
-          <li>Worker 按 Manifest 自动发现，覆盖合并 / 转码 / 烧字幕、角色首登场识别、去字幕和黑场 / 首帧 / 短镜头质检。</li>
-          <li>制作 / 审核 / 批次多角色工作台卡在不可逆节点，避免未审贴片进入投放；全链路可审计、可回滚。</li>
+          <li>正片路径：原片理解 → 故事骨架 → 模型选片 → 成片 → 人工审核；压测单日 1,562 条（约 6,199 分钟），54 个项目，媒体队列 616/616。</li>
+          <li>前贴路径：原片 / 投放素材 → 转写 → 15 秒钩子脚本 → 生成镜头 → 字幕 → 审核 → 合并回原片 → 投放字段；制作 / 审核 / 批次工作台卡在不可逆节点。</li>
+          <li>任务先落库再投递，项目级队列与租约隔离；选片走互评 + Schema 回灌；看门狗自愈，r1–r110 发版门禁；Worker 覆盖转码、烧字、首登场识别和黑场 / 短镜头质检。</li>
         </ul>
       </article>
 
       <article class="job">
-        <div class="job-top"><span class="num">06</span><h3>算力调度与分布式媒体平台（共用基座，持续运行）</h3><span class="when">2026.01 – 至今</span></div>
-        <p class="sub">总体架构与调度 · FastAPI · Temporal · Nomad · Docker · Cyclone 网关 · python-distributed · Windows Worker · FunASR · pgvector</p>
+        <div class="job-top"><span class="num">06</span><h3>GPU 租约与分布式媒体底座</h3><span class="when">2026.01 – 至今</span></div>
+        <p class="sub">总体架构与调度 · FastAPI · 工作流引擎 · Docker · 任务总线 · 内网转写</p>
         <ul class="tags" aria-label="技术关键词">
-          <li>Temporal</li><li>Nomad</li><li>GPU 租约</li><li>python-distributed</li><li>Cyclone</li><li>FunASR</li>
+          <li>FastAPI</li><li>工作流引擎</li><li>Temporal</li><li>Docker</li><li>任务总线</li><li>GPU 租约</li><li>内网转写</li><li>FunASR</li><li>指纹缓存</li><li>冒烟隔离</li>
         </ul>
         <ul>
-          <li>2026.01 集中建设，之后作为漫剧、翻拍、贴片、数字人、投流的共用后端基座持续运行；转写、贴字、配乐、拉片、数字人渲染、本地 ASR、RAG 检索等 Worker 经任务总线接入，队列状态、接口契约和失败恢复对业务侧可见。</li>
-          <li>GPU 租约网关 Reserve → Execute → Release，失败换机最多 3 次；Worker 自描述，按最小 inflight 选路；同一池按峰值错峰，渲染与推理可混部。</li>
-          <li>Temporal 承接跨服务工作流，Nomad 负责 Worker 落机，Cyclone 做网关，python-distributed 做任务总线；视频算力池支持失败重试、stale 三档收割、NVENC 探针、autodrain 与冒烟隔离上线；内网 ASR 做分片转写、背压与缓存。</li>
+          <li>2026.01 集中建设后持续运行，承接漫剧制作、出海改编、投流成片、前贴、数字人渲染和检索任务；队列状态、接口契约和失败恢复对业务侧可见。</li>
+          <li>GPU 租约 Reserve → Execute → Release，失败换机最多 3 次；Worker 自描述，按最小进行中任务数选路；渲染与推理同一池错峰。</li>
+          <li>视频池支持失败重试、超时收割、编码探针与冒烟隔离上线；内网转写做分片、背压与文件指纹缓存。</li>
         </ul>
       </article>
 
       <article class="job">
-        <div class="job-top"><span class="num">07</span><h3>聚光灯（投流素材自动化）</h3><span class="when">2025 – 2026.09</span></div>
-        <p class="sub">平台方案与生产交付 · FastAPI · MySQL / Redis / MinIO · FFmpeg · 豆包 / DeepSeek / Seedance 2.0</p>
+        <div class="job-top"><span class="num">07</span><h3>团队编码 Agent 与多 IM 通道</h3><span class="when">2026.05 – 至今</span></div>
+        <p class="sub">体系设计与落地 · Python / TypeScript · Git · MCP · Cursor / Claude Code / Kilo · OpenClaw</p>
         <ul class="tags" aria-label="技术关键词">
-          <li>FFmpeg</li><li>critique-revise</li><li>项目级隔离</li><li>看门狗</li><li>发版门禁</li><li>DB outbox</li>
+          <li>Skill</li><li>MCP</li><li>Cursor</li><li>Claude Code</li><li>Kilo</li><li>OpenClaw</li><li>Tool Calling</li><li>钉钉</li><li>飞书</li><li>微信</li><li>Telegram</li>
         </ul>
         <ul>
-          <li>原片理解 → 故事产能 → LLM 选片 → FFmpeg 成片 → 人工审核；压测单日 1,562 条成片（约 6,199 分钟），承接 54 个项目，媒体队列 616/616 零失败。</li>
-          <li>项目级队列与租约隔离，多项目并行时权限和资源不串；选片走 critique-revise + Schema / 业务校验回灌。</li>
-          <li>DB outbox、看门狗自愈与 r1–r110 发版门禁（376/510 pytest），用评估和生产反馈收敛十余起线上问题；与前奏曲共用媒体基础设施。</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-top"><span class="num">08</span><h3>编码 Agent 工程化体系（团队内部数字员工）</h3><span class="when">2026.05 – 至今</span></div>
-        <p class="sub">体系设计与落地 · Python / TypeScript · Gitea · Caddy · Windmill · MCP · Cursor / Claude Code / Kilo</p>
-        <ul class="tags" aria-label="技术关键词">
-          <li>MCP</li><li>Caddy</li><li>Windmill</li><li>Gitea Skills</li><li>三段式计费</li><li>Cursor / Claude / Kilo</li>
-        </ul>
-        <ul>
-          <li>内网 Gitea 建设 30+ 团队 Agent 技能，在 Cursor、Claude Code、Kilo 多运行时双向同步。</li>
-          <li>统一适配多种 coding-agent CLI：内部工具经 Windmill 生成后，由 Caddy 做幂等路由与热重载，暴露为内网 HTTP。</li>
-          <li>将 Dify 等工作流封装为 MCP / API 工具供 Agent 检索调用（剧本分拆 / 分镜 / Seedance 2.0）；多租户模板提供鉴权、队列与 freeze / settle / cancel 三段式计费。</li>
+          <li>内网建设 30+ 团队 Skill，在 Cursor / Claude Code / Kilo 多运行时双向同步；编码 Agent 加速协议与工具，不进入生产 Runtime。</li>
+          <li>内部工作流做成 HTTP / MCP 工具目录，供业务 Agent 以 Tool Calling 检索调用（剧本分拆 / 分镜 / 视频生成等）。</li>
+          <li>接入 OpenClaw，钉钉 / 飞书 / 微信 / Telegram 双向多轮，会话接到内部工具目录；业务侧钉钉 / 飞书仍承担排期、审批与群通知。</li>
         </ul>
       </article>
     </section>
@@ -500,26 +588,46 @@
       <div class="sec-h"><small>04</small><h2>工作经历</h2></div>
       <article class="work">
         <div class="job-top"><span class="num">—</span><h3>深圳市鸥溪网络科技有限公司苏州分公司</h3><span class="when">2023.06 – 至今</span></div>
-        <p class="sub">全栈工程师（研发部；项目中任产品经理 / 研发主管）。近两年负责内部 Agent 平台的问题定义、架构与全栈落地，带约 10 人。</p>
+        <p class="sub">全栈工程师（研发部；项目中任产品经理 / 研发主管）。近两年负责短剧 / 漫剧 AI 工具与网站的问题定义、架构与全栈落地，带约 10 人。上列项目均在此期间交付。</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>Agent 工具</li><li>全栈</li><li>GPU 租约</li><li>golden</li><li>带队约 10 人</li>
+        </ul>
         <ul>
-          <li>把内容生产 Agent 与数字人独立产品收到同一套接口、状态、人工卡点和失败恢复，推动原型到中试 / 生产。</li>
-          <li>建设并持续运行共用算力基座，按负载调度渲染、ASR、RAG 与视频处理，控制并发与成本。</li>
+          <li>把改编、制作、投流、口播分发收到同一套接口、状态、人工卡点和失败恢复；IM 只作为工具入口。</li>
+          <li>建设并持续运行内网底座与共用算力：工作流运行时、模型网关、对象存储、搜索 / 浏览工具，以及 GPU 租约与项目级队列隔离。</li>
           <li>对接制作、投放、基建与外部模型团队；用 golden 回归、监控告警和发版门禁收敛线上问题，并推广编码 Agent 技能。</li>
         </ul>
       </article>
       <article class="work">
         <div class="job-top"><span class="num">—</span><h3>苏州七步文化传媒有限公司</h3><span class="when">2020.04 – 2023.05</span></div>
         <p class="sub">内容总监（兼软件交付）</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>Unity</li><li>uni-app</li><li>企业微信</li><li>人审流程</li>
+        </ul>
         <ul>
           <li>软件：合同主体为七步，为客户中国中车交付 Unity 产品展示沙盘与展会数字人（非中车任职）；uni-app 企业微信小程序；投放平台后端 / 运维与自动客服。</li>
           <li>内容：带队做品牌宣发、MCN 与线下活动；把拍板、人审和验收压成可执行流程，成为后来人工卡点工作流的设计来源。</li>
         </ul>
       </article>
       <article class="work">
-        <div class="job-top"><span class="num">—</span><h3>早期履历 · IT之家 / 蜂群</h3><span class="when">2014 – 2017</span></div>
-        <p class="sub">青岛软媒（IT之家）网页与产品 / 科技专栏编辑 → 栏目主编 · 深圳市蜂群文化传播有限公司 软件开发 / 科技内容运营</p>
+        <div class="job-top"><span class="num">—</span><h3>青岛软媒网络科技有限公司（IT之家）</h3><span class="when">2014 – 2017</span></div>
+        <p class="sub">网页与产品 / 科技专栏编辑 → 栏目主编</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>网页</li><li>公众号</li><li>视频栏目</li>
+        </ul>
         <ul>
           <li>负责网页、公众号和实用工具；IT之家「IT黑板报」原创视频新闻栏目主编，为司内最快达到 10 万粉丝的栏目。</li>
+        </ul>
+      </article>
+      <article class="work">
+        <div class="job-top"><span class="num">—</span><h3>深圳市蜂群文化传播有限公司</h3><span class="when">2014 – 2017</span></div>
+        <p class="sub">软件开发 / 科技内容运营</p>
+        <ul class="tags" aria-label="技术关键词">
+          <li>科技微博</li><li>微信自媒体</li><li>10 万+</li>
+        </ul>
+        <ul>
+          <li>负责科技媒体宣传：运营科技微博与微信等自媒体，做日常选题、撰稿、排期与发布。</li>
+          <li>多篇阅读 10 万+；内容获共青团中央及央媒点赞 / 转发。</li>
         </ul>
       </article>
     </section>
