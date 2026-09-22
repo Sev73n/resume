@@ -134,43 +134,12 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
   .kv dd{margin-bottom:.45rem}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-@page{size:A4; margin:13mm 14mm}
-@media print{
-  :root{
-    --bg:#fff; --surface:#fff; --ink:#000; --ink-soft:#1b1b1b; --muted:#454545;
-    --line:#9a9a9a; --line-soft:#c8c8c8; --accent:#8d3522; --accent-ink:#8d3522; --chip:#fff;
-    --rail:7rem; --shell:100%; --measure:none;
-  }
-  html,body{background:#fff !important}
-  body{font-size:10pt; line-height:1.62; -webkit-print-color-adjust:exact; print-color-adjust:exact; orphans:3; widows:3}
-  .no-print{display:none !important}
-  .page{width:100%; padding:0}
-  /* 分页时左侧标题栏会与正文脱开、在次页留下空栏，故打印改为单列堆叠 */
-  .sec{grid-template-columns:1fr; gap:0}
-  .sec-head{grid-column:1; padding-bottom:4pt; break-after:avoid-page}
-  .sec-body{grid-column:1; border-top:0; padding-top:0}
-  .sec-head .idx{display:inline; margin-right:.5em}
-  .sec-head h2{display:inline}
-  a{color:inherit; text-decoration:none}
-  .contact a{border-bottom:0}
-  .name{font-size:22pt}
-  .sec{margin-top:12pt}
-  .sec-head h2{font-size:10.5pt}
-  .block{break-inside:avoid; padding:6pt 0}
-  .points>li,.sub li,.stats,.hi,.kv{break-inside:avoid}
-  h1,h2,h3{break-after:avoid}
-  .stats dd{font-size:11pt}
-  .tags li,.hooks li{background:#fff}
-  .shot img{width:88px; height:88px}
-  .foot{margin-top:12pt}
-}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="bar no-print">
+<div class="bar">
   <div class="bar-in">
     <nav aria-label="章节导航">
       <a href="#summary">概述</a>
