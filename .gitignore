@@ -1,3 +1,7 @@
 node_modules/
 package-lock.json
 *.pdf
+
+# PDF 导出改为本地手工处理，不纳入版本管理
+export-pdf.mjs
+package.json
