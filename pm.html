@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>王麒森 · AI 产品策划 / Agent 设计专家</title>
+<meta name="description" content="王麒森 — AI 产品策划 / Agent 设计专家。在短剧 / 漫剧「剧本 → 制作 → 投放」链路上从 0 到 1 规划并落地 3 个 AI 内容产品、1 个共享 Agent 平台与一套内部 AI 提效工具，支撑 130+ 人日常生产，人均产能提升 5–10 倍。科技媒体栏目主编、品牌内容营销与市场总监出身。现居苏州，可实地坐班。" />
+<meta name="author" content="王麒森" />
+<meta name="theme-color" content="#f6f4ef" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="王麒森 · AI 产品策划 / Agent 设计专家" />
+<meta property="og:description" content="需求洞察 · Agent 产品设计 · 人机协作 · 平台化与产品矩阵 · 单位成本模型。支撑 130+ 人内容产线，人均产能提升 5–10 倍。" />
+<meta property="og:image" content="https://sev73n.github.io/resume/resume-photo.jpg" />
+<meta property="og:url" content="https://sev73n.github.io/resume/pm.html" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23a8412a'/%3E%3Ctext x='32' y='45' font-size='38' font-family='sans-serif' font-weight='700' fill='%23fff' text-anchor='middle'%3E%E7%8E%8B%3C/text%3E%3C/svg%3E" />
+<style>
+:root{
+  --bg:#f6f4ef; --surface:#fffdfa; --ink:#1c1a17; --ink-soft:#3f3a33; --muted:#6d665c;
+  --line:#dcd5c8; --line-soft:#ebe5da; --accent:#a8412a; --accent-ink:#8d3522; --accent-tint:#f8ece6; --chip:#fbf8f2;
+  --rail:8.5rem; --measure:48em; --shell:min(1150px, 100% - 3rem); --radius:10px;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"DejaVu Sans Mono",monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:64px}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.75;
+  letter-spacing:.01em; text-wrap:pretty; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{text-wrap:balance; line-height:1.32; margin:0}
+p,ul,ol,dl,dd{margin:0}
+ul,ol{padding:0; list-style:none}
+a{color:var(--accent-ink); text-underline-offset:.2em}
+a:hover{color:var(--ink)}
+strong{font-weight:650; color:var(--ink)}
+::selection{background:var(--accent); color:#fff}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+.skip{position:absolute; left:-9999px; top:0; background:var(--accent); color:#fff; padding:.6rem 1rem; z-index:99}
+.skip:focus{left:.5rem; top:.5rem}
+
+.bar{position:sticky; top:0; z-index:20; background:var(--bg); border-bottom:1px solid var(--line-soft)}
+.bar-in{width:var(--shell); margin:0 auto; display:flex; align-items:center; height:48px}
+.bar nav{display:flex; gap:.1rem; flex-wrap:wrap}
+.bar nav a{font-size:.8rem; color:var(--muted); text-decoration:none; padding:.3rem .62rem; border-radius:999px; white-space:nowrap}
+.bar nav a:hover{color:var(--ink); background:var(--chip)}
+
+.page{width:var(--shell); margin:0 auto; padding:2.4rem 0 3rem}
+.page:focus{outline:none}
+
+.mast{display:grid; grid-template-columns:1fr auto; gap:0 2.6rem; align-items:start}
+.eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:.4rem}
+.name{font-size:clamp(2.3rem,5.4vw,3.3rem); font-weight:700; letter-spacing:.03em}
+.role{margin-top:.5rem; font-size:1.05rem; font-weight:650; color:var(--ink-soft)}
+.role small{font-size:.86rem; font-weight:400; color:var(--muted); margin-left:.5rem}
+.intent{margin-top:.5rem; font-size:.92rem; color:var(--muted); max-width:44em}
+.intent b{color:var(--ink-soft); font-weight:600}
+.contact{display:flex; flex-wrap:wrap; gap:.25rem 1.3rem; margin-top:.8rem; font-size:.9rem}
+.contact li{color:var(--muted)}
+.contact a{color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--line)}
+.contact a:hover{color:var(--accent-ink); border-color:var(--accent)}
+.facts{display:flex; flex-wrap:wrap; gap:.2rem .5rem; margin-top:.55rem; font-size:.82rem; color:var(--muted)}
+.facts li+li::before{content:"·"; margin-right:.5rem; color:var(--line)}
+.shot{margin:0}
+.shot img{display:block; width:128px; height:128px; object-fit:cover; object-position:50% 18%; border-radius:var(--radius); border:1px solid var(--line); background:var(--surface)}
+
+.kw{grid-column:1/-1; margin-top:1.1rem; padding:.75rem 0 0; border-top:1px solid var(--line-soft);
+  display:grid; grid-template-columns:1fr; gap:.38rem}
+.kw>div{display:flex; gap:.6rem; align-items:baseline; min-width:0}
+.kw dt{flex:0 0 5.2rem; font-size:.74rem; font-weight:600; color:var(--muted); white-space:nowrap}
+.kw dd{display:flex; flex-wrap:wrap; gap:.28rem}
+.kw dd span{font-size:.74rem; line-height:1.5; padding:.06em .48em; border-radius:5px; border:1px solid var(--line); background:var(--surface); color:var(--ink-soft); white-space:nowrap}
+
+.sec{margin-top:2.7rem; display:grid; grid-template-columns:var(--rail) 1fr; gap:0 2.4rem}
+.sec-head{grid-column:1; border-top:2px solid var(--ink); padding-top:.55rem}
+.sec-head h2{font-size:1rem; font-weight:650; letter-spacing:.03em}
+.sec-head .idx{display:block; font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; color:var(--muted); margin-bottom:.12rem}
+.sec-body{grid-column:2; border-top:1px solid var(--line); padding-top:.7rem; min-width:0}
+
+.headline{font-size:1.08rem; font-weight:650; line-height:1.65; max-width:var(--measure); color:var(--ink)}
+.headline em{font-style:normal; color:var(--accent-ink)}
+
+.stats{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.55rem; margin-top:1rem}
+.card{position:relative; background:var(--surface); border:1px solid var(--line-soft); border-radius:8px; padding:.68rem .82rem .72rem; display:flex; flex-direction:column}
+.card .ck{font-size:.72rem; color:var(--muted); line-height:1.4}
+.card .cv{margin-top:.2rem; font-size:1.34rem; font-weight:700; line-height:1.2; font-variant-numeric:tabular-nums; color:var(--ink); white-space:nowrap}
+.card .cv small{font-size:.74rem; font-weight:500; color:var(--muted); margin-left:.12rem}
+.card .cd{margin-top:.32rem; font-size:.74rem; line-height:1.5; color:var(--ink-soft)}
+.card .cd .was{color:var(--muted)}
+.card.hl{border-color:var(--accent); background:linear-gradient(180deg,var(--accent-tint),var(--surface) 70%)}
+.card.hl .cv{color:var(--accent-ink)}
+.badge{position:absolute; top:.55rem; right:.6rem; font-size:.62rem; line-height:1.4; padding:.05em .42em; border-radius:4px; background:var(--accent); color:#fff; letter-spacing:.04em}
+.card.hl .ck{padding-right:4.4rem}
+
+.traits{margin-top:1rem; max-width:var(--measure)}
+.traits li{position:relative; padding-left:1.05rem; margin-top:.45rem; font-size:.95rem}
+.traits li::before{content:""; position:absolute; left:0; top:.8em; width:.45rem; height:1.5px; background:var(--accent)}
+.traits .k{font-weight:650; color:var(--ink)}
+
+.kv{margin-top:.95rem; display:grid; grid-template-columns:5.2rem 1fr; gap:.35rem 1rem; max-width:var(--measure); font-size:.92rem}
+.kv dt{color:var(--muted); font-size:.85rem; padding-top:.08rem}
+
+/* 产品矩阵表 */
+.matrix-wrap{overflow-x:auto; margin-top:.3rem}
+.swipe{display:none; margin-top:.5rem; font-size:.72rem; color:var(--muted)}
+.matrix{width:100%; border-collapse:collapse; font-size:.86rem; line-height:1.55; min-width:36rem}
+.matrix th,.matrix td{text-align:left; vertical-align:top; padding:.5rem .7rem; border-bottom:1px solid var(--line-soft)}
+.matrix th{font-size:.74rem; font-weight:600; color:var(--muted); border-bottom:1px solid var(--line)}
+.matrix td:first-child{white-space:nowrap; color:var(--accent-ink); font-weight:600; font-size:.8rem}
+.matrix td:nth-child(2){font-weight:600; color:var(--ink)}
+.matrix td:nth-child(3),.matrix td:nth-child(4){color:var(--ink-soft)}
+
+.block{padding:1.1rem 0; border-bottom:1px solid var(--line-soft)}
+.block:first-of-type{padding-top:.35rem}
+.block:last-of-type{border-bottom:0; padding-bottom:0}
+.block h3{font-size:1.02rem; font-weight:650; display:flex; align-items:baseline; gap:.55rem; flex-wrap:wrap}
+.block h3 .n{font-family:var(--mono); font-size:.72rem; color:var(--accent-ink); letter-spacing:.06em}
+.when{font-family:var(--mono); font-size:.76rem; color:var(--muted); white-space:nowrap; margin-left:auto}
+.byline{margin-top:.35rem; font-size:.86rem; color:var(--muted)}
+.hi{margin-top:.55rem; max-width:var(--measure); padding:.48rem .8rem; background:var(--chip); border-left:2px solid var(--accent); border-radius:0 6px 6px 0; font-size:.95rem}
+
+.kpis{display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.55rem}
+.kpis li{font-size:.8rem; line-height:1.45; padding:.2em .6em; border-radius:6px; background:var(--accent-tint); color:var(--ink-soft)}
+.kpis b{color:var(--accent-ink); font-weight:700; margin-right:.3rem; font-variant-numeric:tabular-nums}
+
+.tags{display:flex; flex-wrap:wrap; gap:.3rem; margin:.55rem 0 0}
+.tags li{font-size:.72rem; line-height:1.5; padding:.08em .5em; border:1px solid var(--line); border-radius:5px; background:var(--surface); color:var(--muted)}
+.points{margin-top:.75rem; max-width:var(--measure)}
+.points>li{position:relative; padding-left:1.05rem; margin-top:.48rem}
+.points>li::before{content:""; position:absolute; left:0; top:.8em; width:.45rem; height:1.5px; background:var(--accent)}
+.points>li:first-child{margin-top:0}
+.points .k{font-weight:650; color:var(--ink)}
+.sub{margin-top:.3rem}
+.sub li{position:relative; padding-left:.95rem; margin-top:.25rem; font-size:.94rem; color:var(--ink-soft)}
+.sub li::before{content:""; position:absolute; left:.1rem; top:.72em; width:.3rem; height:.3rem; border-radius:50%; background:var(--line)}
+.sub .k{color:var(--ink)}
+
+/* 关键决策卡 */
+.decision{margin-top:.7rem; max-width:var(--measure); border:1px solid var(--accent); border-radius:8px; background:linear-gradient(180deg,var(--accent-tint),var(--surface) 60%); padding:.7rem .9rem .8rem}
+.decision h4{margin:0; font-size:.92rem; font-weight:650; color:var(--accent-ink)}
+.decision h4 span{font-family:var(--mono); font-size:.66rem; letter-spacing:.12em; color:#fff; background:var(--accent); border-radius:4px; padding:.05em .45em; margin-right:.45rem; vertical-align:.12em}
+.decision dl{margin-top:.45rem; display:grid; grid-template-columns:4.6rem 1fr; gap:.3rem .8rem; font-size:.9rem}
+.decision dt{color:var(--muted); font-size:.82rem; padding-top:.08rem}
+.decision dd{color:var(--ink-soft)}
+
+.caps{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem}
+.cap{background:var(--surface); border:1px solid var(--line-soft); border-radius:8px; padding:.7rem .9rem .8rem}
+.cap h3{font-size:.95rem; font-weight:650; display:flex; gap:.5rem; align-items:baseline}
+.cap h3 .n{font-family:var(--mono); font-size:.7rem; color:var(--accent-ink)}
+.cap p,.cap li{font-size:.88rem; color:var(--ink-soft); line-height:1.65}
+.cap p{margin-top:.35rem}
+.cap ul{margin-top:.35rem}
+.cap li{position:relative; padding-left:.9rem; margin-top:.25rem}
+.cap li::before{content:""; position:absolute; left:0; top:.75em; width:.4rem; height:1.5px; background:var(--accent)}
+.cap .k{font-weight:650; color:var(--ink)}
+.cap.wide{grid-column:1/-1}
+
+.edu .block{padding:.85rem 0}
+.edu h3{font-size:1rem}
+
+.foot{width:var(--shell); margin:0 auto 3rem; padding-top:.8rem; border-top:2px solid var(--ink); font-size:.78rem; color:var(--muted); display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+
+@media (max-width:1000px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  :root{--rail:6.6rem; --shell:min(1150px, 100% - 2.2rem)}
+  .shot img{width:108px; height:108px}
+  .caps{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  html{scroll-padding-top:0}
+  body{font-size:15.5px; line-height:1.72}
+  :root{--shell:calc(100% - 1.8rem)}
+  .sec{grid-template-columns:1fr; gap:0}
+  .sec-head{padding-bottom:.45rem}
+  .sec-body{grid-column:1; border-top:0; padding-top:0}
+  .mast{grid-template-columns:1fr}
+  .shot{order:-1; margin-bottom:1rem}
+  .shot img{width:92px; height:92px}
+  .role small{display:block; margin:.15rem 0 0}
+  .kw>div{flex-direction:column; gap:.2rem}
+  .kw dt{flex:none}
+  .badge{position:static; align-self:flex-start; margin-bottom:.3rem}
+  .card.hl .ck{padding-right:0}
+  .when{margin-left:0; width:100%}
+  .bar{display:none}
+  .kv,.decision dl{grid-template-columns:1fr; gap:.1rem .5rem}
+  .kv dd,.decision dd{margin-bottom:.4rem}
+  .swipe{display:block}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<div class="bar">
+  <div class="bar-in">
+    <nav aria-label="章节导航">
+      <a href="#summary">概述</a>
+      <a href="#matrix">产品矩阵</a>
+      <a href="#skills">核心能力</a>
+      <a href="#projects">项目经历</a>
+      <a href="#work">工作经历</a>
+      <a href="#edu">教育</a>
+    </nav>
+  </div>
+</div>
+
+<main class="page" id="main" tabindex="-1">
+
+  <header class="mast">
+    <div>
+      <p class="eyebrow">Resume · AI Product &amp; Agent Design</p>
+      <h1 class="name">王麒森</h1>
+      <p class="role">AI 产品策划 / Agent 设计专家 <small>需求洞察 + 产品设计 + 亲手落地 · 带队约 10 人</small></p>
+      <p class="intent"><b>求职意向：</b>AI 产品策划 / AI 产品经理 / Agent 设计（Agent 产品、AIGC 内容平台、AI 赋能业务流程）</p>
+      <ul class="contact">
+        <li><a href="tel:15614668674">156 1466 8674</a></li>
+        <li><a href="mailto:king73lin@foxmail.com">king73lin@foxmail.com</a></li>
+        <li><a href="https://github.com/Sev73n" target="_blank" rel="noopener">github.com/Sev73n</a></li>
+      </ul>
+      <ul class="facts">
+        <li>现居苏州，可实地坐班</li>
+        <li>工龄约 9 年（不含 2017–2020 赴日读研）</li>
+        <li>工学硕士（日本 JAIST）</li>
+      </ul>
+    </div>
+    <figure class="shot">
+      <img src="resume-photo.jpg" alt="王麒森 照片" width="128" height="128" loading="eager" />
+    </figure>
+
+    <dl class="kw">
+      <div><dt>产品方法</dt><dd>
+        <span>AI 产品经理</span><span>0→1 产品落地</span><span>需求分析</span><span>用户访谈 / 跟岗</span><span>PRD</span><span>需求评审</span><span>验收标准</span><span>数据驱动迭代</span>
+      </dd></div>
+      <div><dt>AI 产品设计</dt><dd>
+        <span>Agent 产品设计</span><span>AIGC</span><span>人机协作设计</span><span>AI 评测</span><span>规则产品化</span><span>内容审核与合规</span><span>多模态交互</span>
+      </dd></div>
+      <div><dt>平台与商业</dt><dd>
+        <span>产品矩阵与平台化</span><span>多角色权限</span><span>SaaS 计费</span><span>单位成本模型</span><span>模型厂商合作</span><span>智能硬件</span>
+      </dd></div>
+      <div><dt>AI 工具</dt><dd>
+        <span>Skills / 工作流搭建</span><span>Dify</span><span>MCP</span><span>RAG</span><span>Cursor / Claude Code</span><span>OpenClaw</span>
+      </dd></div>
+      <div><dt>内容与协作</dt><dd>
+        <span>跨团队协作</span><span>品牌内容营销</span><span>商业企划</span><span>新闻采编</span><span>技术方案书</span>
+      </dd></div>
+    </dl>
+  </header>
+
+  <section class="sec" id="summary">
+    <div class="sec-head"><span class="idx">01</span><h2>个人概述</h2></div>
+    <div class="sec-body">
+      <p class="headline">在一条完整的内容产业链上，从 0 到 1 规划并落地 <em>3 个 AI 内容产品、1 个共享 Agent 平台和一套内部 AI 提效工具</em>，支撑 <em>130+ 人</em>日常生产，人均产能提升 <em>5–10 倍</em>。管线参与制作的网络大电影登上腾讯视频冒险榜 TOP 1。</p>
+
+      <ul class="traits">
+        <li><span class="k">懂内容与商业：</span>做过科技媒体栏目主编（栏目全网播放量过亿），一人策划、出镜并运营 33 万+ 粉丝的科技自媒体，为小米、vivo、OPPO 等手机厂商做商业企划与广告创意；在传媒公司任市场总监，服务过钉钉、五菱汽车、德克士、盒马等品牌，负责企业与政府两条业务线的方案、报价与交付验收。</li>
+        <li><span class="k">懂 AI 与工程：</span>能亲手写 Agent 编排与检索的核心代码，需求阶段就能判断技术可行性、成本和风险，PRD 可以直接落到接口契约和验收标准；与火山引擎、Vidu 等模型方配合调参。</li>
+        <li><span class="k">做产品的方式：</span>先跟岗访谈，把一线人员的经验拆成规则；自动化做到哪一步、人在哪里把关，由业务指标和评测结果决定；多个产品共用一套底座，能复用就不重复建设。</li>
+      </ul>
+
+      <div class="stats">
+        <div class="card hl">
+          <span class="badge">外部榜单</span>
+          <p class="ck">腾讯视频 · 冒险榜</p>
+          <p class="cv">TOP 1</p>
+          <p class="cd">另有 4 部作品登腾讯火龙漫剧首发榜</p>
+        </div>
+        <div class="card hl">
+          <span class="badge">人效</span>
+          <p class="ck">单剧最小编制</p>
+          <p class="cv">约 100 → 3 <small>人</small></p>
+          <p class="cd">单月自动化产出 50 部、5,000+ 分钟</p>
+        </div>
+        <div class="card">
+          <p class="ck">动画成片成本</p>
+          <p class="cv">¥50–100 <small>/ 分钟</small></p>
+          <p class="cd"><span class="was">行业万元级 / 分钟 →</span> 降约两个数量级</p>
+        </div>
+        <div class="card">
+          <p class="ck">营销素材日产能</p>
+          <p class="cv">15,000 <small>条 / 日</small></p>
+          <p class="cd">约等于 75 人的人工日产</p>
+        </div>
+        <div class="card">
+          <p class="ck">数字人口播单条成本</p>
+          <p class="cv">万元 → 百元级</p>
+          <p class="cd">运营用手机即可自助建形象</p>
+        </div>
+        <div class="card">
+          <p class="ck">日常使用人数</p>
+          <p class="cv">130+ <small>人</small></p>
+          <p class="cd">100+ 制作、30+ 投放每天在用</p>
+        </div>
+        <div class="card">
+          <p class="ck">迭代节奏</p>
+          <p class="cv">164 <small>次发版 / 4 个月</small></p>
+          <p class="cd">切条产品平均每周约 9 次，合入 84 个 PR</p>
+        </div>
+        <div class="card">
+          <p class="ck">模型调用综合成本</p>
+          <p class="cv">−30%+</p>
+          <p class="cd">统一网关、本地推理分流与供应商比价</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="matrix">
+    <div class="sec-head"><span class="idx">02</span><h2>产品矩阵</h2></div>
+    <div class="sec-body">
+      <p class="headline">围绕短剧 / 漫剧的「剧本 → 制作 → 投放」链路，搭建了一套上下游互通的 AI 产品矩阵。</p>
+      <p class="swipe">表格可左右滑动 →</p>
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <thead><tr><th>环节</th><th>产品</th><th>主要用户</th><th>解决的问题</th></tr></thead>
+          <tbody>
+            <tr><td>上游 · 剧本</td><td>出海剧本改编与剧本中台</td><td>编剧、本地化编辑</td><td>剧本改编与出海本地化依赖个人经验</td></tr>
+            <tr><td>中游 · 制作</td><td>AI 漫剧全流程制作平台</td><td>导演 / 制片、编剧、原画与动画师、制作人员</td><td>动画制作人力密集、成本高</td></tr>
+            <tr><td>下游 · 投放</td><td>营销内容自动化制作与投放平台</td><td>投放优化师、审核、运营</td><td>投放素材供给跟不上多平台节奏</td></tr>
+            <tr><td>底座</td><td>Agent 平台与算力底座</td><td>以上所有产品</td><td>模型渠道分散、成本不透明、算力忙闲不均</td></tr>
+            <tr><td>内部提效</td><td>Skill 中心与 AI 提效工具</td><td>研发与业务团队</td><td>新业务上线慢、团队经验难沉淀</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="traits">
+        <li><span class="k">上下游数据互通：</span>剧本中台的切分结果被制作平台直接调用；制作平台的成片进入投放平台做切条、贴片和分发；人物资产检索在改编和制作两个产品之间复用。</li>
+        <li><span class="k">统一规则：</span>三条产线共用一套接口规范、人工审批节点和失败恢复规则，新产品可以直接接入底座，不用从零搭。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="sec-head"><span class="idx">03</span><h2>核心能力</h2></div>
+    <div class="sec-body">
+      <div class="caps">
+        <article class="cap wide">
+          <h3><span class="n">01</span> 需求洞察与分析</h3>
+          <p>跟岗观察、用户访谈 → 需求拆解 → PRD → 需求评审与排期 → 验收标准 → 上线后数据复盘。直接对接过编剧、导演 / 制片、原画与设计师、投放运营、业务负责人、外部模型厂商，以及企业负责人、政府部门与宣发部门。</p>
+        </article>
+        <article class="cap wide">
+          <h3><span class="n">02</span> AI 产品设计</h3>
+          <ul>
+            <li><span class="k">人机协作：</span>设计人工、交接、全自动三种推进模式；只在不可逆节点前保留人工审批，任一节点都可以打断、修改后交回模型继续。</li>
+            <li><span class="k">过程透明：</span>用节点画布与实时流式输出展示 AI 每一步在做什么，节点状态分为待执行、执行中、待人审、成功、失败可恢复，让用户放心把工作交给 AI。</li>
+            <li><span class="k">把经验变成产品：</span>把编剧、编辑、投放人员的经验拆成节点规则、质检清单和提示词，让新人和模型都能照着执行。</li>
+            <li><span class="k">效果评测：</span>用人工标注的 Golden 集、LLM-as-a-Judge 分维度打分和灰度 A/B 验证效果，指标不退化才全量上线。</li>
+          </ul>
+        </article>
+        <article class="cap">
+          <h3><span class="n">03</span> 平台化与产品矩阵</h3>
+          <p>识别多条产线的共性需求，把模型、算力、检索、审批、计费沉淀成共享能力；一个产品验证过的能力（如人物资产检索）直接复用到其他产品。</p>
+        </article>
+        <article class="cap">
+          <h3><span class="n">04</span> 规则、合规与质量治理</h3>
+          <p>把依赖人工的审核规则固化为产品流程（节点审批、结构化校验、质检清单、发版门禁）；上游设内容验收与审核红线，自动打码与画面质检放在不可逆节点之前；敏感数据只走本地模型。做过按商品、时段和用户身份分层的动态定价与优惠推荐规则。</p>
+        </article>
+        <article class="cap">
+          <h3><span class="n">05</span> 商业化与成本意识</h3>
+          <ul>
+            <li><span class="k">单位成本模型：</span>按单任务成本、每分钟成片成本、单条素材成本衡量产品价值，用来决定需求优先级和方案取舍。</li>
+            <li><span class="k">计费产品：</span>多用户 SaaS 计费与运营后台；额度按「预占 → 成功扣费 → 失败释放」三段式结算，避免任务失败时多扣或漏扣。</li>
+            <li><span class="k">降本：</span>统一模型网关、本地推理分流与供应商比价，模型调用综合成本降低 30%+。</li>
+          </ul>
+        </article>
+        <article class="cap">
+          <h3><span class="n">06</span> 生态合作与跨团队协作</h3>
+          <p>与火山引擎研发（Seedance 2.0）、Vidu 等模型方配合调参，把模型能力的升级转化为产品形态的升级；对接外部模型厂商谈渠道、配额与价格；带过约 10 人的研发团队。新闻采编与商业企划出身，写过技术方案书、投标文件和政府项目立项、验收材料。</p>
+        </article>
+        <article class="cap wide">
+          <h3><span class="n">07</span> AI 工具与 Agent 搭建</h3>
+          <p>Dify、LangChain 快速原型；团队 30+ Skill（同步到 Cursor 与 Claude Code）；把 Dify 工作流封装成 API 目录供 Agent 调用；接入 OpenClaw，让 Agent 进入钉钉、飞书、企业微信；熟悉 MCP 工具调用和 RAG 检索。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <div class="sec-head"><span class="idx">04</span><h2>项目经历</h2></div>
+    <div class="sec-body">
+
+      <article class="block">
+        <h3><span class="n">01</span> AI 漫剧全流程制作平台 <span class="when">2025.11 – 至今</span></h3>
+        <p class="byline">技术负责人（兼产品负责人）· 带队约 10 人</p>
+        <ul class="kpis">
+          <li><b>TOP 1</b>腾讯视频冒险榜</li>
+          <li><b>约 100 → 3 人</b>单剧最小编制</li>
+          <li><b>¥50–100 / 分钟</b>成片成本</li>
+          <li><b>5,000+ 分钟</b>单月自动化产出</li>
+        </ul>
+        <ul class="points">
+          <li><span class="k">业务问题：</span>传统动画制作要动画师、建模师、原画约 100 人协作，单部成本高、周期长，难以支撑漫剧的批量产出。</li>
+          <li><span class="k">用户与需求：</span>与导演 / 制片、编剧、原画与动画师逐环节梳理传统制作流程，确定哪些环节交给生成管线、哪些保留导演 / 制片审核把关；与业务负责人对齐单剧编制和成本目标，作为验收口径。</li>
+          <li><span class="k">产品设计：</span>
+            <ul class="sub">
+              <li><span class="k">全链路节点化：</span>「创意 → 辅助创作 → 剧本拆解 → 人物设定 → 角色设计 → 资产生成 → 分镜 → 视频生成 → 验收审计」，每个节点都有明确的输入、输出和验收规则。</li>
+              <li><span class="k">辅助创作工作台：</span>多用户界面，提供文稿自动分析、剧本辅助创作、AI 分镜、镜头设计辅助、角色资产出图与视频生成。</li>
+              <li><span class="k">可视化编排画布：</span>制作人员在画布上看到每个节点的状态和产物，可以随时暂停、替换产物或接管。</li>
+              <li><span class="k">3D 导演台：</span>逐场生成三维白模和镜头运动，导演在自动结果上精修机位后导出，作为视频生成的运镜参考。</li>
+              <li><span class="k">角色一致性：</span>设计「角色 LoRA + 资产库检索复用」方案，解决跨镜头、跨集角色长相不一致，新项目不必从零建角色。</li>
+              <li><span class="k">SaaS 化：</span>多用户登录、按用量计费与运营后台，平台可以开放给外部团队使用。</li>
+            </ul>
+          </li>
+          <li><span class="k">生态合作与迭代：</span>2025.11 起配合 Vidu 调参，先做半自动出片；2026.02 起配合火山引擎研发调 Seedance 2.0，借新模型把默认模式从人工推进改为全自动，只在导演 / 制片验收、审核红线等不可逆节点保留人工。</li>
+          <li><span class="k">产品闭环：</span>上游补齐内容验收与审核红线（自动打码、黑场 / 短镜头质检），下游接入投放、二创、人物名贴片与自动配乐，从「做出来」延伸到「能播、能投」。</li>
+          <li><span class="k">结果：</span>单剧最小编制由约 100 人降到 3 人，成片成本由行业万元级 / 分钟降到 ¥50–100 / 分钟；单月自动化产出 50 部、5,000+ 分钟；网络大电影《青铜天门之楼兰星骸》获腾讯视频冒险榜 TOP 1，《宗主别撩了：四位尊上要疯了》《钢枪之吻》《诡异降临》《常春藤密室游戏之致命指令》登腾讯火龙漫剧首发榜。</li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3><span class="n">02</span> 营销内容自动化制作与投放平台 <span class="when">2025 下半年 – 至今</span></h3>
+        <p class="byline">技术负责人（兼产品负责人）· 面向 30+ 人投放团队</p>
+        <ul class="kpis">
+          <li><b>15,000 条 / 日</b>机器日产能</li>
+          <li><b>≈75 人</b>人工日产当量</li>
+          <li><b>万元 → 百元级</b>数字人单条成本</li>
+          <li><b>164 次</b>4 个月生产发版</li>
+        </ul>
+        <ul class="points">
+          <li><span class="k">业务问题：</span>投放团队靠人工切条、做贴片、拍口播，人均日产约 200 条，素材供给跟不上多平台投放节奏；真人或传统数字人口播单条成本在万元级。</li>
+          <li><span class="k">用户与需求：</span>与投放团队对接投放字段、各平台规则与审核规范，把一线反馈和投放数据转成需求优先级。</li>
+          <li><span class="k">产品设计：</span>拆成三条产品路径，按制作、审核、批次管理划分多角色工作台。
+            <ul class="sub">
+              <li><span class="k">素材切条：</span>自动理解原片，按投放需要选出高光片段；AI 主笔与质检两个角色按业务清单复核选片，再成片、人工审核。</li>
+              <li><span class="k">贴片生成：</span>素材入库 → 转写 → 约 15 秒钩子脚本 → 生成镜头 → 字幕 → 审核 → 合回原片 → 输出投放字段。</li>
+              <li><span class="k">数字人口播分发：</span>一句话需求 → 改稿 → 口播脚本 → 配音 → 数字人成片 → 人工审核 → 按账号矩阵分发到视频号、小红书、抖音、大众点评。</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="decision">
+          <h4><span>关键决策</span>数字人口播的门槛定在哪里</h4>
+          <dl>
+            <dt>两个选项</dt><dd>一是棚拍加建模师做高精度形象，效果最好，但单条成本万元级、周期长，每次都要依赖外部团队；二是手机手持采集加开源数字人驱动，画质够用，运营可以自助完成。</dd>
+            <dt>判断依据</dt><dd>投放素材生命周期短、需求量大、要频繁换人设和话术，决定投放效果的是产量和上新速度，而不是极致画质。</dd>
+            <dt>选择与配套</dt><dd>选第二种，把门槛定在「运营自己就能建形象」，只需手机手持拍一段正面说话；形象采集质量不达标就提示重采，不进渲染队列，避免浪费算力。</dd>
+            <dt>结果</dt><dd><strong>数字人单条成本由万元级降到百元级</strong>，运营不再依赖外部团队建形象。</dd>
+          </dl>
+        </div>
+        <ul class="points">
+          <li><span class="k">其他取舍：</span>成片审核通过后才进入分发，某个平台发布失败只在该平台重试，不回滚已过审的成片；按项目隔离队列，避免口播渲染挤占投放素材的产能。</li>
+          <li><span class="k">质量与上线：</span>每条路径都在成片后设人工审核；发版前统一过测试、离线质量评测与门禁，按开关灰度上线并备回滚方案。切条产品 2026.05 立项后 4 个月生产发版 164 次，线上问题按根因写正式复盘（4 份），不按单个任务打补丁。</li>
+          <li><span class="k">结果：</span>机器日产能 15,000 条，约等于 75 人的人工日产；数字人单条成本由万元级降到百元级；切条路径压测单日成片 1,562 条（约 6,199 分钟），承接 54 个项目，媒体队列零失败。</li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3><span class="n">03</span> 出海剧本改编与剧本中台 <span class="when">2025.06 – 至今</span></h3>
+        <p class="byline">技术负责人（兼产品负责人）</p>
+        <ul class="kpis">
+          <li><b>5–15 分钟</b>人工介入 / 任务</li>
+          <li><b>¥30–100</b>单任务成本</li>
+          <li><b>92 条</b>人工标注评测集</li>
+        </ul>
+        <ul class="points">
+          <li><span class="k">业务问题：</span>把国内剧本改编成海外版本，要同时保证情节忠实、本地化合规和人物一致，过去依赖编辑的个人经验，产能和质量都不稳定。</li>
+          <li><span class="k">用户与需求：</span>跟岗观察并访谈编剧与本地化编辑，把改写经验拆成节点规则、质检清单与验收标准，写成 PRD，评审后排期；在日本生活 3 年的经历用于判断目标市场的题材禁忌和人物关系尺度。</li>
+          <li><span class="k">产品设计：</span>
+            <ul class="sub">
+              <li><span class="k">改编工作台：</span>10 步 / 16 个 LLM 节点的改写流程，主笔与质检两个 AI 角色互评；提供人工、交接、全自动三种推进模式，编辑可以在任意节点打断、修改后交回模型继续。</li>
+              <li><span class="k">视频 / 漫画转剧本：</span>分集转写后合成全剧，自动分析人物、场景与情节，支持视频和漫画两条工作流。</li>
+              <li><span class="k">配套能力：</span>多角色 TTS 配音与分镜切割，把「文稿 → 剧本 → 分镜」做成一个工作台。</li>
+              <li><span class="k">剧本中台：</span>剧本规范化切分入库、可检索、可回指原文位置，作为下游制作平台固定调用的数据源。</li>
+            </ul>
+          </li>
+          <li><span class="k">评测驱动决策：</span>自建 92 条人工标注评测集。在查询处理方案的对比中，纯规则方案反超了两个大模型方案，因此把链路定为「规则打底，只在长文本、高噪声时调用模型」，既省成本又更稳定。</li>
+          <li><span class="k">结果：</span>单任务人工介入 5–15 分钟（端到端 1.5–3 小时），成本 ¥30–100；人物资产检索 Top5 命中率约 75%，并复用到漫剧制作平台。</li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3><span class="n">04</span> 企业内部 Agent 平台与算力底座 <span class="when">2026.01 – 至今</span></h3>
+        <p class="byline">平台总体规划与架构</p>
+        <ul class="kpis">
+          <li><b>≈80%</b>公司模型调用经网关</li>
+          <li><b>−30%+</b>综合模型成本</li>
+          <li><b>30 台</b>GPU 共享调度</li>
+        </ul>
+        <ul class="points">
+          <li><span class="k">业务问题：</span>三条产线各自对接模型和算力，渠道分散、成本不透明，GPU 忙闲不均。</li>
+          <li><span class="k">用户与需求：</span>汇总三条产线对模型、算力与工具的共性诉求，收敛成统一的接口与失败处理规则；与外部模型厂商和供应商对接渠道、配额与价格。</li>
+          <li><span class="k">产品设计：</span>
+            <ul class="sub">
+              <li><span class="k">统一模型网关：</span>40+ 渠道、OpenAI 兼容接口，按权重、配额和失败自动切换。</li>
+              <li><span class="k">算力共享：</span>30 台 GPU 共享调度，渲染与推理错峰使用。</li>
+              <li><span class="k">数据安全：</span>敏感数据只走本地模型。</li>
+              <li><span class="k">工具目录：</span>业务工具统一注册，Agent 可以直接调用。</li>
+              <li><span class="k">IM 入口：</span>员工在钉钉、飞书、企业微信里就能和 Agent 多轮对话。</li>
+            </ul>
+          </li>
+          <li><span class="k">结果：</span>公司约 80% 的模型调用经网关，综合成本降低 30%+。</li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3><span class="n">05</span> 内部 AI 提效工具与 Skill 中心 <span class="when">2026.05 – 至今</span></h3>
+        <p class="byline">体系设计与落地</p>
+        <ul class="points">
+          <li><span class="k">业务问题：</span>团队经验散落在个人手里，AI 编程工具的规则各写各的；新业务每次都要从鉴权、计费、队列重新搭，上线慢。</li>
+          <li><span class="k">产品设计：</span>
+            <ul class="sub">
+              <li><span class="k">Skill 中心：</span>沉淀 30+ 团队 Skill，一键安装、双向同步到 Cursor、Claude Code 等多种 AI 编程工具。</li>
+              <li><span class="k">工作流目录：</span>把 Dify 上的剧本拆分、分镜、形象、视频生成等工作流封装成 API 目录，Agent 按需检索调用。</li>
+              <li><span class="k">一句话出页面：</span>用自然语言生成 HTML 页面，自动发布成内网站点，业务同事不写代码也能做内部工具页。</li>
+              <li><span class="k">SaaS 应用模板：</span>内置鉴权、计费（预占 → 扣费 → 释放）、任务队列与文件存储，新业务直接基于模板上线。</li>
+            </ul>
+          </li>
+          <li><span class="k">结果：</span>团队经验与工作流统一沉淀、复用，新业务不必从零搭基础能力。</li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3><span class="n">06</span> 展会交互机器人与 NFC 智能价签 <span class="when">2023 – 2025.05</span></h3>
+        <p class="byline">苏州七步 · 方案负责人 · 软件与 AI 核心开发（硬件外采）</p>
+        <ul class="points">
+          <li><span class="k">用户与需求：</span>与企业客户负责人和宣发部门梳理展示目标与受众，据此定义访客画像维度和讲解内容，写入技术方案书。</li>
+          <li><span class="k">展会机器人：</span>摄像头识别访客的年龄段和性别，按画像选择对应的产品卖点，替代固定轮播；接入大模型与产品知识库，支持语音多轮问答；支持手势跟踪与视觉引导定位，与 Unity 产品沙盘、大屏和数字人联动；展后为客户输出访客与线索统计。</li>
+          <li><span class="k">NFC 智能价签：</span>电子墨水屏价签，NFC 写入、5G 联网；用户以 NFC 读取商品信息后，系统结合商品信息、时间段和用户身份，用规则叠加推荐模型 / 大模型给出分层定价与优惠推荐。</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="sec-head"><span class="idx">05</span><h2>工作经历</h2></div>
+    <div class="sec-body">
+
+      <article class="block">
+        <h3>深圳市鸥溪网络科技有限公司苏州分公司 <span class="when">2025.06 – 至今</span></h3>
+        <p class="byline">全栈工程师 / 技术负责人（研发部，项目中兼任产品经理）</p>
+        <ul class="points">
+          <li>负责 AI 内容产品的问题定义、产品规划、架构设计与核心开发，带约 10 人，对业务结果负责。</li>
+          <li><span class="k">兼任产品经理：</span>对接编剧、导演 / 制片、原画与设计师、投放运营、业务负责人与外部模型厂商，负责访谈跟岗、PRD、需求评审、验收标准，以及上线后的数据复盘与迭代。</li>
+          <li>把三条产线收敛到同一套接口规范、人工审批与失败恢复规则之上；在团队内推广 AI 编程工具，建设 30+ Skill。</li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3>苏州七步文化传媒有限公司 <span class="when">2020.04 – 2025.05</span></h3>
+        <p class="byline">内容总监 → 市场总监（全程兼软件交付负责人）</p>
+        <ul class="points">
+          <li><span class="k">市场总监阶段（2023.06 – 2025.05）：</span>负责企业传媒与政府软件两条业务线的方案、报价与交付验收。</li>
+          <li><span class="k">需求与方案：</span>直接对接企业负责人、政府部门与客户宣发部门做需求调研，编写技术方案书和投标文件；负责政府项目的立项、验收材料编写及合规流程。</li>
+          <li><span class="k">产品交付：</span>为中国中车等企业客户交付 Unity 产品展示沙盘、展会数字人、展会交互机器人、NFC 智能价签、企业微信小程序、投放平台后端与自动客服。</li>
+          <li><span class="k">企业内容服务：</span>带领苏州团队与上海分部，为品牌客户从需求出发做内容营销方案与执行，兼做 MCN 与新媒体运营：
+            <ul class="sub">
+              <li><span class="k">钉钉：</span>围绕品牌新 LOGO 设计为期 2 个月的营销计划，3 条长视频，B 站涨粉 3 万+、互动评论 1,000+。</li>
+              <li><span class="k">五菱汽车（上海分部操盘）：</span>打造「人民代步车」接地气的抖音内容，配合直播带货，直播人气 10 万+，单季度涨粉 8 万+。</li>
+              <li><span class="k">德克士：</span>以「火辣新味道」为切入点策划 5 条短视频广告，配合平台运营与时事营销做差异化，当季拿下线上外卖平台销售冠军。</li>
+              <li><span class="k">盒马：</span>深入原产地拍摄，突出「产地到用户 48 小时」的新鲜卖点，配合淘宝事件营销，助力三线城市下沉。</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3>深圳市蜂群文化传播有限公司 <span class="when">2016.01 – 2017.03</span></h3>
+        <p class="byline">软件开发 / 科技内容运营</p>
+        <ul class="points">
+          <li><span class="k">科技自媒体「撩物君」（微博原创视频博主）：</span>一人负责选题策划、出镜与账号运营，做手机、QQ、微信实用技巧和隐私安全类科技短视频，以及剧情类内容；<strong>粉丝 33 万+</strong>，多条视频播放破百万，最高 331 万。</li>
+          <li>为小米、vivo、OPPO 等手机厂商撰写商业企划案与广告创意。</li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3>青岛软媒网络科技有限公司（IT之家） <span class="when">2014.07 – 2015.12</span></h3>
+        <p class="byline">科技专栏编辑 → 栏目主编</p>
+        <ul class="points">
+          <li>负责新闻采编、科技专栏、网页、公众号与实用工具；主编原创视频新闻栏目，<strong>栏目全网播放量过亿</strong>；文章平均阅读 3 万+，精品内容 10 万+。</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec edu" id="edu">
+    <div class="sec-head"><span class="idx">06</span><h2>教育背景</h2></div>
+    <div class="sec-body">
+
+      <article class="block">
+        <h3>日本国立北陆先端科学技术大学院大学（JAIST） <span class="when">2017.04 – 2020.03</span></h3>
+        <p class="byline">工学硕士 · 知识科学 / 媒体制作</p>
+        <ul class="points">
+          <li>硕士课题「使用虚拟现实设备降低眩晕度的方法研究」，做用户对照实验与统计检验；这套实验方法后来用于 AI 产品的效果评测。</li>
+          <li>担任 JAIST 中国留学人员友好联谊会责任学生，因社会贡献活动获<strong>学长赏（校长表彰，2019.03）</strong>。</li>
+        </ul>
+      </article>
+
+      <article class="block">
+        <h3>太原科技大学 <span class="when">2010.09 – 2014.06</span></h3>
+        <p class="byline">工学学士 · 电气工程</p>
+      </article>
+
+      <article class="block">
+        <dl class="kv">
+          <dt>语言</dt><dd>英语 TOEIC 609（可独立读写英文技术文档）｜ 日语日常沟通</dd>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>王麒森 · AI 产品策划 / Agent 设计专家</span>
+  <span>156 1466 8674 · king73lin@foxmail.com</span>
+</footer>
+</body>
+</html>
