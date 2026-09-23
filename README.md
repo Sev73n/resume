@@ -22,7 +22,7 @@
 
 此前 5 年在传媒公司兼任软件交付负责人，独立交付 Unity、小程序与政府信息化项目；该阶段的交付与验收实践，支撑后续在 Agent 编排中人工审批节点的设计。
 
-**规模与成效：** 支撑 130+ 人内容产线（100+ 制作、30+ 投放）日常生产 · 人均产能提升 5–10 倍 · 单剧最小编制由约 100 人降至 3 人 · 30 台 GPU
+**规模与成效：** 支撑 130+ 人内容产线（100+ 制作、30+ 投放）日常生产 · 人均产能提升 5–10 倍 · 单剧最小编制由约 100 人降至 3 人 · 30 台 GPU · 模型调用综合成本降低 30%+
 
 ---
 
@@ -33,7 +33,7 @@
 把长链路任务表达成可推进、可交接、可恢复的状态，而不是一串顺序调用。
 
 - 多节点 LLM 有向图编排 + 节点级状态机，支持人工、交接、全自动三种推进方式；交接时携带上下文与未决决策，停滞、超时与终止都能恢复并留审计
-- 主笔 / 质检双角色互评改写；按任务类型路由模型，失败自动降到备用模型；不可逆动作前置人工审批门
+- 主笔 / 质检双角色互评改写；按任务类型在外部商用模型与本地开源模型间统一路由，失败自动降到备用模型；不可逆动作前置人工审批门
 - 结构化输出用 JSON Schema 加业务规则双重校验，校验不过时把错误结构回写给模型重试，而不是直接抛错终止
 - 长上下文按分段边界装配与压缩；在 Cursor / Claude Code / Kilo 之上建团队 Skill 体系并多运行时同步，内部工作流封装成 HTTP / MCP 工具目录供 Agent 调用
 
@@ -60,7 +60,7 @@
 - 后端：主力 Python / FastAPI，承载 Agent 编排、任务队列与数据处理——高并发部分（DB 任务队列、outbox 投递、分布式锁、看门狗）都在 Python 服务内；模型网关基于开源 Go 网关（New API）二开做路由与配额，并用 Go 写健康探针
 - 交付：Linux 下用 Docker Compose 分环境编排（staging / 生产 / 回滚），按能力开关灰度上线；容器健康探针加重启策略做进程守护，Nomad 负责异构 Worker 落机与摘流；发版前置门禁覆盖单测清单、镜像探针、离线质量门禁与前端类型检查
 
-**技术栈** — 主力：Python / FastAPI · TypeScript / React / Vite · PostgreSQL + pgvector（HNSW）· Redis · Docker / Compose · Alembic ｜ 熟练：Node.js（Electron / 认证）· MySQL · MinIO · Celery · FFmpeg · Temporal · MCP 与 Agent Runtime 二次开发 ｜ 了解：Go（网关二开 / 探针）· Nomad · Three.js · RPA 与 computer-use
+**技术栈** — 主力：Python / FastAPI · TypeScript / React / Vite · PostgreSQL + pgvector（HNSW）· Redis · Docker / Compose · Alembic ｜ 熟练：Node.js（Electron / 认证）· MySQL · MinIO · Celery · FFmpeg · Temporal · vLLM / Ollama 本地推理部署 · MCP 与 Agent Runtime 二次开发 ｜ 了解：Go（网关二开 / 探针）· Nomad · Three.js · RPA 与 computer-use
 
 ---
 
@@ -115,11 +115,13 @@ React · FastAPI / Go · PostgreSQL + pgvector · Redis
 ### 4. Agent 运行时底座与算力调度 ｜ 2026.01 – 至今
 
 总体架构与调度
-FastAPI · Go · Temporal · Nomad · Docker · 任务总线 · 内网 ASR
+FastAPI · Go · New API · vLLM / Ollama · Temporal · Nomad · Docker · 任务总线 · 内网 ASR
 
 把原型、异步任务、模型网关、对象存储与 GPU 资源收成一套可被所有业务 Agent 调用的底座，30 台 GPU 承接漫剧制作、出海改编、营销切条、贴片、数字人渲染与检索作业。
 
 - **两层调度：** 任务总线按在跑任务数最少选机（Worker 能力自注册）；GPU 网关按"预留 → 执行 → 释放"管理租约，失败转移最多 3 次，渲染与推理同池错峰
+- **模型接入层：** 基于 New API 二开统一模型网关，聚合 30+ 官方渠道、4+ LLM 与 8+ VLM 中转渠道，以 OpenAI 兼容协议统一出口，按渠道权重、配额与失败切换路由；公司约 80% 的模型调用经该网关，结合供应商比价与年框议价，综合算力成本降低 30%+
+- **本地推理：** 从 HuggingFace / ModelScope 拉取开源模型，用 vLLM / Ollama 在内网 GPU 部署 Qwen3 系列 LLM 及嵌入、重排模型，与外部渠道挂在同一网关后；涉及敏感数据的任务走本地推理，不出内网
 - **长事务：** 跨服务、跨人工卡点的任务用 Temporal 承载，进程重启后从上一成功步骤续跑，不在业务代码里手写分布式状态
 - **可靠性：** 失败重试、超时收割、编码能力探测与冒烟隔离上线，节点连续失败自动摘流；内网转写做分片、背压与文件指纹缓存
 - **多通道接入：** 接入开源 IM Agent 网关（OpenClaw），打通钉钉 / 飞书 / 企业微信 / Telegram 双向多轮会话，并直连内部工具目录

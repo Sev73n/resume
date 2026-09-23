@@ -192,6 +192,7 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
         <div><dt>人均产能</dt><dd>5–10 <span>倍提升</span></dd></div>
         <div><dt>单剧最小编制</dt><dd>100 → 3 <span>人</span></dd></div>
         <div><dt>算力规模</dt><dd>30 <span>台 GPU</span></dd></div>
+        <div><dt>模型调用综合成本</dt><dd>−30% <span>以上</span></dd></div>
       </dl>
     </div>
   </section>
@@ -209,7 +210,7 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
         </ul>
         <ul class="points">
           <li>多节点 LLM 有向图编排 + 节点级状态机，支持人工、交接、全自动三种推进方式；交接时携带上下文与未决决策，停滞、超时与终止都能恢复并留审计</li>
-          <li>主笔 / 质检双角色互评改写；按任务类型路由模型，失败自动降到备用模型；不可逆动作前置人工审批门</li>
+          <li>主笔 / 质检双角色互评改写；按任务类型在外部商用模型与本地开源模型间统一路由，失败自动降到备用模型；不可逆动作前置人工审批门</li>
           <li>结构化输出用 JSON Schema 加业务规则双重校验，校验不过时把错误结构回写给模型重试，而不是直接抛错终止</li>
           <li>长上下文按分段边界装配与压缩；在 Cursor / Claude Code / Kilo 之上建团队 Skill 体系并多运行时同步，内部工作流封装成 HTTP / MCP 工具目录供 Agent 调用</li>
         </ul>
@@ -257,7 +258,7 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
         </ul>
         <dl class="kv">
           <dt>主力</dt><dd>Python / FastAPI · TypeScript / React / Vite · PostgreSQL + pgvector（HNSW）· Redis · Docker / Compose · Alembic</dd>
-          <dt>熟练</dt><dd>Node.js（Electron / 认证）· MySQL · MinIO · Celery · FFmpeg · Temporal · MCP 与 Agent Runtime 二次开发</dd>
+          <dt>熟练</dt><dd>Node.js（Electron / 认证）· MySQL · MinIO · Celery · FFmpeg · Temporal · vLLM / Ollama 本地推理部署 · MCP 与 Agent Runtime 二次开发</dd>
           <dt>了解</dt><dd>Go（网关二开 / 探针）· Nomad · Three.js · RPA 与 computer-use</dd>
         </dl>
       </article>
@@ -334,12 +335,14 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
         <h3><span class="n">04</span>Agent 运行时底座与算力调度<span class="when">2026.01 – 至今</span></h3>
         <p class="byline">总体架构与调度</p>
         <ul class="tags">
-          <li>FastAPI</li><li>Go</li><li>Temporal</li><li>Nomad</li><li>Docker</li>
+          <li>FastAPI</li><li>Go</li><li>New API</li><li>vLLM</li><li>Ollama</li><li>Temporal</li><li>Nomad</li><li>Docker</li>
           <li>任务总线</li><li>GPU 租约</li><li>内网 ASR</li><li>OpenClaw</li>
         </ul>
         <p class="lead">把原型、异步任务、模型网关、对象存储与 GPU 资源收成一套可被所有业务 Agent 调用的底座，30 台 GPU 承接漫剧制作、出海改编、营销切条、贴片、数字人渲染与检索作业。</p>
         <ul class="points">
           <li><span class="k">两层调度：</span>任务总线按在跑任务数最少选机（Worker 能力自注册）；GPU 网关按「预留 → 执行 → 释放」管理租约，失败转移最多 3 次，渲染与推理同池错峰</li>
+          <li><span class="k">模型接入层：</span>基于 New API 二开统一模型网关，聚合 30+ 官方渠道、4+ LLM 与 8+ VLM 中转渠道，以 OpenAI 兼容协议统一出口，按渠道权重、配额与失败切换路由；公司约 80% 的模型调用经该网关，结合供应商比价与年框议价，综合算力成本降低 30%+</li>
+          <li><span class="k">本地推理：</span>从 HuggingFace / ModelScope 拉取开源模型，用 vLLM / Ollama 在内网 GPU 部署 Qwen3 系列 LLM 及嵌入、重排模型，与外部渠道挂在同一网关后；涉及敏感数据的任务走本地推理，不出内网</li>
           <li><span class="k">长事务：</span>跨服务、跨人工卡点的任务用 Temporal 承载，进程重启后从上一成功步骤续跑，不在业务代码里手写分布式状态</li>
           <li><span class="k">可靠性：</span>失败重试、超时收割、编码能力探测与冒烟隔离上线，节点连续失败自动摘流；内网转写做分片、背压与文件指纹缓存</li>
           <li><span class="k">多通道接入：</span>接入开源 IM Agent 网关（OpenClaw），打通钉钉 / 飞书 / 企业微信 / Telegram 双向多轮会话，并直连内部工具目录</li>
