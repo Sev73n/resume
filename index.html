@@ -206,22 +206,22 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
 
     <dl class="kw">
       <div><dt>Agent 编排</dt><dd>
-        <span>LangGraph</span><span>LangChain</span><span>LlamaIndex</span><span>OpenAI Agents SDK</span><span>Mastra</span><span>Vercel AI SDK</span><span>Dify</span><span>MCP Server</span><span>Temporal</span><span>智能体画布</span><span>状态机设计</span><span>Multi-Agent</span>
+        <span>LangGraph</span><span>LangChain</span><span>LlamaIndex</span><span>OpenAI Agents SDK</span><span>AutoGen</span><span>CrewAI</span><span>Mastra</span><span>Vercel AI SDK</span><span>Dify</span><span>MCP Server</span><span>Temporal</span><span>智能体画布</span><span>状态机设计</span><span>Multi-Agent</span><span>Planning</span>
       </dd></div>
       <div><dt>LLM 应用</dt><dd>
-        <span>Prompt Engineering</span><span>Function / Tool Calling</span><span>Structured Output</span><span>Streaming</span><span>上下文管理</span><span>Memory</span><span>Guardrails</span><span>Human-in-the-loop</span>
+        <span>Prompt Engineering</span><span>CoT / ReAct / Few-shot</span><span>Function / Tool Calling</span><span>Structured Output</span><span>Streaming</span><span>上下文管理</span><span>Memory</span><span>Guardrails</span><span>自纠错 / 检查点</span><span>Human-in-the-loop</span>
       </dd></div>
       <div><dt>模型 · 选型</dt><dd>
-        <span>DeepSeek</span><span>通义千问 Qwen</span><span>豆包 / Seedance</span><span>智谱 GLM</span><span>Kimi</span><span>Vidu</span><span>vLLM / Ollama</span><span>LoRA 训练</span><span>模型网关</span>
+        <span>GPT / Claude</span><span>DeepSeek</span><span>通义千问 Qwen</span><span>Llama</span><span>豆包 / Seedance</span><span>智谱 GLM</span><span>Kimi</span><span>Vidu</span><span>vLLM / Ollama 私有化部署</span><span>模型量化</span><span>LoRA / SFT / DPO</span><span>模型网关</span>
       </dd></div>
       <div><dt>RAG · 评测</dt><dd>
-        <span>Embedding / bge-m3</span><span>pgvector / HNSW</span><span>Milvus / Qdrant</span><span>Rerank</span><span>查询归一化</span><span>LLM-as-a-Judge</span><span>Golden 集</span><span>灰度 A/B</span>
+        <span>文档解析</span><span>Embedding / bge-m3</span><span>pgvector / HNSW</span><span>Milvus / Qdrant / Chroma</span><span>多路召回</span><span>Hybrid Search</span><span>Rerank</span><span>反幻觉策略</span><span>查询归一化</span><span>RAGAS</span><span>幻觉率</span><span>LLM-as-a-Judge</span><span>Golden 集</span><span>灰度 A/B</span>
       </dd></div>
       <div><dt>LLMOps · 治理</dt><dd>
-        <span>Langfuse</span><span>LangSmith</span><span>OpenTelemetry</span><span>权限与审计</span><span>多租户隔离</span><span>灰度 rollout</span><span>发版门禁</span>
+        <span>Langfuse</span><span>LangSmith</span><span>OpenTelemetry</span><span>Prometheus / Grafana / ELK</span><span>权限与审计</span><span>数据脱敏</span><span>Prompt Injection 防护</span><span>内容过滤</span><span>多租户隔离</span><span>灰度 rollout</span><span>发版门禁</span>
       </dd></div>
       <div><dt>全栈 · 工程</dt><dd>
-        <span>Python / FastAPI</span><span>TypeScript / React</span><span>React Native</span><span>Node.js</span><span>SSE / WebSocket</span><span>Electron</span><span>PostgreSQL</span><span>Redis</span><span>MongoDB</span><span>Docker / Linux</span><span>Git / CI/CD</span><span>Go</span>
+        <span>Python / Asyncio / FastAPI</span><span>Java / Spring Boot / Cloud</span><span>TypeScript / React</span><span>React Native</span><span>Node.js</span><span>SSE / WebSocket</span><span>Electron</span><span>PostgreSQL</span><span>Redis</span><span>MongoDB</span><span>Docker / K8s / Linux</span><span>服务网格</span><span>Git / CI/CD</span><span>Go</span>
       </dd></div>
       <div><dt>AI Coding</dt><dd>
         <span>Cursor</span><span>Claude Code</span><span>Codex</span><span>GitHub Copilot</span><span>Vibe Coding</span><span>Rules / Skills</span>
@@ -299,17 +299,19 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
       <article class="block">
         <h3><span class="n">01</span> Agent 设计、编排与运行时</h3>
         <ul class="tags">
-          <li>状态机设计</li><li>智能体画布</li><li>Multi-Agent</li><li>Human-in-the-loop</li><li>LangGraph</li><li>LangChain</li><li>LlamaIndex</li><li>OpenAI Agents SDK</li><li>Mastra</li><li>Vercel AI SDK</li><li>Dify</li>
-          <li>MCP Server</li><li>Function Calling</li><li>Temporal</li><li>JSON Schema</li><li>SSE / WebSocket</li>
+          <li>状态机设计</li><li>智能体画布</li><li>Multi-Agent</li><li>Human-in-the-loop</li><li>LangGraph</li><li>LangChain</li><li>LlamaIndex</li><li>OpenAI Agents SDK</li><li>AutoGen</li><li>CrewAI</li><li>Mastra</li><li>Vercel AI SDK</li><li>Dify</li>
+          <li>Planning</li><li>MCP Server</li><li>Function Calling</li><li>ReAct</li><li>自纠错</li><li>Temporal</li><li>JSON Schema</li><li>SSE / WebSocket</li>
         </ul>
         <ul class="points">
+          <li><span class="k">任务规划：</span>把模糊的业务需求拆解为可执行的原子任务节点（Planning），每个节点定义输入、输出、验收规则与失败码，再由编排层按依赖推进；如出海改编拆为 10 步 / 16 个 LLM 节点，漫剧从创意到验收逐阶段节点化</li>
           <li><span class="k">状态机设计：</span>自研多节点 LLM 有向图与节点级有限状态机，节点状态分为待执行、执行中、待人审、成功、失败可恢复，明确合法迁移与失败码；支持人工、交接、全自动三种推进模式，任务可暂停、接管、超时恢复，全程审计留痕。跨服务长事务由 Temporal 承载，进程重启后从上一成功步骤续跑</li>
           <li><span class="k">智能体画布：</span>可视化 Agent 工作流画布，节点编排与后端状态机一一对应，经 WebSocket 实时展示每个节点的状态与产物；使用者可在任一节点暂停、替换产物或接管，再交回自动流程（本人定画布与后端的接口契约，前端由团队实现）</li>
           <li><span class="k">Multi-Agent：</span>主笔 / 质检双 Agent（Generator–Critic）互评改写与选片复核；Agent 间交接（handoff）携带上下文与待确认事项，停滞检测与终止均可恢复、可审计</li>
-          <li><span class="k">框架选型：</span>熟悉 LangGraph、LangChain、LlamaIndex、OpenAI Agents SDK、Mastra、Vercel AI SDK、Dify。原型与轻量工作流用 Dify / LangChain 快速验证；生产主链路需要节点级人工审批和跨进程续跑，因此采用自研状态机与 Temporal</li>
-          <li><span class="k">工具调用：</span>基于 Function / Tool Calling，把内部工作流、Dify 工作流与第三方 API 封装为 HTTP / MCP Server 工具目录，Agent 按需检索调用；三维白模的机位与运镜规则也经 MCP 工具与 Skill 约束</li>
+          <li><span class="k">框架与协议：</span>深入理解 MCP 与 A2A 等多智能体编排协议，熟悉 LangGraph、LangChain、LlamaIndex、OpenAI Agents SDK、AutoGen、CrewAI、Mastra、Vercel AI SDK、Dify。原型与轻量工作流用 Dify / LangChain 快速验证；生产主链路需要节点级人工审批和跨进程续跑，因此采用自研状态机与 Temporal</li>
+          <li><span class="k">工具调用：</span>基于 Function / Tool Calling，把内部工作流、Dify 工作流与第三方 API 封装为 HTTP / MCP Server 工具目录，Agent 按需检索调用；三维白模的机位与运镜规则也经 MCP 工具与 Skill 约束。开发与调试外部 API 插件、沙盒执行环境与自动化执行脚本（营销平台 165 个运维、门禁与任务恢复脚本），熟悉 Function Calling 的深度调试</li>
+          <li><span class="k">可靠性与反幻觉：</span>针对模型幻觉与执行不稳定，用工程手段兜底：检索结果作为唯一事实来源并要求引用可回指的原文片段，节点级检查点验证（Temporal 从上一成功步骤续跑）、自纠错机制（Schema 校验失败回写模型重试，主笔 / 质检 critique-revise 迭代打回）、产出可回指原文位置以便核对</li>
           <li><span class="k">上下文、记忆与护栏：</span>长上下文按分段边界装配与压缩，长期记忆见下方检索与知识工程；Structured Output 做 JSON Schema 与业务规则双重校验，校验失败把错误结构回写给模型重试；内容合规红线作为输出护栏（Guardrails）设在不可逆节点前；多模型统一路由，失败自动降级到备用模型</li>
-          <li><span class="k">Prompt 工程：</span>提示词按节点版本化管理，Langfuse 记录每个版本的效果、token 与成本；把编剧、编辑、投放人员的经验固化为节点提示词与质检清单，变更先走灰度 A/B</li>
+          <li><span class="k">Prompt 工程：</span>熟练运用 CoT 链式思考、ReAct、Few-shot 与角色分工提示；提示词按节点版本化管理，Langfuse 记录每个版本的效果、token 与成本；把编剧、编辑、投放人员的经验固化为节点提示词与质检清单，变更先走灰度 A/B</li>
           <li><span class="k">Streaming 与实时交互：</span>SSE 流式输出与 WebSocket 双向通道，前端实时展示 Agent 每一步的执行过程，人可以中途打断、修改后交回模型继续执行</li>
         </ul>
       </article>
@@ -317,11 +319,13 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
       <article class="block">
         <h3><span class="n">02</span> 检索与知识工程</h3>
         <ul class="tags">
-          <li>向量数据库</li><li>pgvector</li><li>HNSW</li><li>Embedding / bge-m3</li><li>Rerank</li><li>查询归一化</li><li>标量预过滤</li><li>以图生文</li><li>增量记忆</li>
+          <li>文档解析</li><li>向量数据库</li><li>pgvector</li><li>HNSW</li><li>Embedding / bge-m3</li><li>混合检索</li><li>Rerank</li><li>查询归一化</li><li>语义解析</li><li>实体抽取（NER）</li><li>以图生文</li><li>增量记忆</li>
         </ul>
         <ul class="points">
-          <li><span class="k">图像资产检索：</span>图像先抽取为结构化文字描述 → 查询归一化 → 标量预过滤 → pgvector（HNSW）+ bge-m3 向量召回 → 重排模型精排；用自建人工标注评测集决定方案选型</li>
-          <li><span class="k">记忆与文档：</span>已完成的产物抽取成实体 / 场景 / 情节记忆并增量写回；文档按行号规范切分入库，检索结果可回指原文位置</li>
+          <li><span class="k">图像资产检索：</span>图像先抽取为结构化文字描述 → 查询归一化 → 标量预过滤 → pgvector（HNSW）+ bge-m3 向量召回 → 重排模型精排；结构化标量过滤、规则匹配与向量召回组成多路召回 / Hybrid Search，再统一 rerank，避免全库向量扫描；用自建人工标注评测集决定方案选型</li>
+          <li><span class="k">自定义语义解析：</span>查询归一化采用「规则解析器打底 + 仅长文本高噪声时调用模型」，把夹带分辨率与工作流噪声的生图提示词解析成与索引同构的结构化查询，处理模型覆盖不好的边界情况</li>
+          <li><span class="k">文档解析与数据清洗：</span>剧本、视频转写、漫画等大规模非结构化数据先清洗、分集转写与规范化切分入库，文档按行号切分，检索结果可回指原文位置；用实体抽取（人物、场景、角色首次登场）辅助结构化</li>
+          <li><span class="k">记忆：</span>已完成的产物抽取成实体 / 场景 / 情节记忆并增量写回，供后续任务复用</li>
         </ul>
       </article>
 
@@ -332,11 +336,12 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
           <li>权限与审计</li><li>多租户隔离</li><li>JWT / SSO</li><li>outbox</li><li>SKIP LOCKED</li><li>分布式锁</li><li>发版门禁</li>
         </ul>
         <ul class="points">
-          <li><span class="k">效果评测：</span>检索侧用人工标注 Golden 集逐题归因；生成侧用 LLM-as-a-Judge 分维度打分，并定期与人工评审抽样比对一致性；换模型或改提示词先走灰度 A/B，指标不退化再全量</li>
-          <li><span class="k">可观测：</span>Langfuse / LangSmith 追踪 LLM 调用链，按节点记录 token、成本、延迟与提示词版本；服务侧接入 OpenTelemetry；失败按模型、检索、工具、工作流四类归因，按根因修复</li>
+          <li><span class="k">效果评测：</span>建立 Agent 端到端评估体系：检索侧用人工标注 Golden 集逐题归因；生成侧用 LLM-as-a-Judge 分维度打分（情节忠实度即幻觉率、本地化合规、人物一致性），并定期与人工评审抽样比对一致性；熟悉 RAGAS 等自动化评估指标（faithfulness、answer relevancy、context precision）；持续监测准确率、幻觉率与执行成本，换模型或改提示词先走灰度 A/B，指标不退化再全量</li>
+          <li><span class="k">可观测：</span>Langfuse / LangSmith 追踪 LLM 调用链，按节点记录 token、成本、延迟与提示词版本；服务侧接入 OpenTelemetry，熟悉 Prometheus / Grafana 指标告警与 ELK 日志体系；失败按模型、检索、工具、工作流四类归因，按根因修复</li>
           <li><span class="k">可靠性：</span>任务投递用 outbox 模式，Worker 用 <code>SELECT ... FOR UPDATE SKIP LOCKED</code> 竞争取任务，配合幂等写入与分布式锁；内容合规与画面质检设在不可逆节点前，回归用例纳入发版门禁</li>
           <li><span class="k">非功能设计：</span>架构评审必答高可用（多渠道失败切换、超时回收、断点续跑）、成本控制（网关路由、本地推理分流、单任务成本台账）与响应延迟（流式输出、长短任务分队列）三项，按节点监控 token、成本与延迟</li>
-          <li><span class="k">权限与安全 rollout：</span>多用户 SaaS 按角色划分制作、审核、批次管理权限，JWT 认证与桌面端单点登录；按项目隔离队列与租约（项目级多租户隔离），避免单个项目挤占公共资源；关键操作全程审计留痕；敏感数据只经本地推理；新能力按开关灰度上线并配回滚编排</li>
+          <li><span class="k">权限与安全 rollout：</span>多用户 SaaS 按角色划分制作、审核、批次管理权限，JWT 认证与桌面端单点登录；按项目隔离队列与租约（项目级多租户隔离），避免单个项目挤占公共资源；关键操作全程审计留痕；敏感数据脱敏后才出网，涉密任务只经本地推理；输入侧做 Prompt Injection 防护，输出侧做内容过滤与合规红线（自动打码、画面质检）；新能力按开关灰度上线并配回滚编排</li>
+          <li><span class="k">高并发与成本治理：</span>营销平台压测单日成片 1,562 条（约 6,199 分钟）、承接 54 个项目，媒体队列零失败；模型成本通过网关路由、本地推理分流与转写文件指纹缓存治理，综合 Token 成本降低 30%+</li>
         </ul>
       </article>
 
@@ -344,14 +349,15 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
         <h3><span class="n">04</span> 模型选型、模型工程与全栈交付</h3>
         <ul class="tags">
           <li>DeepSeek</li><li>Qwen</li><li>豆包 / Seedance</li><li>智谱 GLM</li><li>Kimi</li><li>Vidu</li>
-          <li>LoRA 训练</li><li>vLLM</li><li>Ollama</li><li>New API 网关</li>
+          <li>GPT / Claude</li><li>Llama</li><li>LoRA / SFT / DPO</li><li>vLLM</li><li>Ollama</li><li>模型量化</li><li>私有化部署</li><li>New API 网关</li>
           <li>React</li><li>React Native</li><li>TypeScript</li><li>Node.js</li><li>Electron</li><li>FastAPI</li><li>Docker Compose</li><li>CI/CD</li><li>Nomad</li>
         </ul>
         <ul class="points">
-          <li><span class="k">模型选型：</span>按任务在效果、成本与延迟之间选型：DeepSeek-V3.2 做结构化抽取，长文本高噪声时由 Qwen3-8B 兜底查询归一化，豆包视觉模型做图像理解入库，Seedance 2.0 / Vidu 做视频生成，并配合火山引擎、Vidu 调参；智谱 GLM、Kimi 等经统一网关接入，供横向对比与失败切换；选型结论由评测集决定，而非凭经验</li>
-          <li><span class="k">模型工程：</span>LoRA 微调训练角色模型，保证跨镜头一致性；用 vLLM / Ollama 在内网 GPU 上推理部署 Qwen3 系列 LLM 及嵌入、重排模型；基于开源 New API 二次开发统一模型网关，以 OpenAI 兼容协议统一出口</li>
+          <li><span class="k">模型选型：</span>按任务在效果、成本与延迟之间选型：DeepSeek-V3.2 做结构化抽取，长文本高噪声时由 Qwen3-8B 兜底查询归一化，豆包视觉模型做图像理解入库，Seedance 2.0 / Vidu 做视频生成，并配合火山引擎、Vidu 调参；智谱 GLM、Kimi 以及 GPT、Claude 等闭源模型经统一网关接入，供横向对比与失败切换；选型结论由评测集决定，而非凭经验</li>
+          <li><span class="k">模型理解与调优：</span>理解 Transformer 架构与 LLM 推理机制（KV Cache、采样参数、上下文长度与显存的关系），熟悉 GPT、Claude 等闭源模型与 Llama、DeepSeek、Qwen 等开源模型的特性差异；优先用提示词工程解决指令遵循问题，必要时用 SFT / DPO 微调</li>
+          <li><span class="k">模型工程：</span>LoRA 微调训练角色模型，保证跨镜头一致性；用 vLLM / Ollama 在内网 GPU 上私有化部署 Qwen3 系列 LLM（含量化模型）及嵌入、重排模型；基于开源 New API 二次开发统一模型网关，以 OpenAI 兼容协议统一出口</li>
           <li><span class="k">全栈：</span>React + TypeScript + Vite 工作台与 Electron 桌面端（三维白模桌面端主干代码本人完成，智能体画布由本人定接口契约并 review）；桌面端接入 SaaS 认证与单点登录；后端主力 Python / FastAPI（REST API、JWT 鉴权、用户与计费系统、异步任务调度），Node.js 用于 Electron 与工具服务，模型网关二次开发与健康探针用 Go；熟悉 React Native 跨端开发</li>
-          <li><span class="k">交付：</span>Linux 下用 Docker Compose 分 staging / 生产两套环境编排，另备回滚编排，按能力开关灰度上线；Git 分支协作与 CI 发版门禁；Nomad 调度异构 Worker</li>
+          <li><span class="k">交付：</span>Linux 下用 Docker Compose 分 staging / 生产两套环境编排，另备回滚编排，按能力开关灰度上线；Git 分支协作与 CI 发版门禁；Nomad 调度异构 Worker；熟悉 K8s 与服务网格的容器化部署</li>
         </ul>
       </article>
 
@@ -384,12 +390,14 @@ code{font-family:var(--mono); font-size:.86em; background:var(--chip); border:1p
       <article class="block">
         <h3><span class="n">07</span> 技术栈</h3>
         <dl class="kv stack">
-          <dt>主力</dt><dd>Python / FastAPI · TypeScript / React / Vite · Node.js · PostgreSQL + pgvector · Redis · Docker / Compose · Temporal · Linux · Git</dd>
-          <dt>Agent / LLM</dt><dd>LangGraph / LangChain / LlamaIndex / OpenAI Agents SDK / Mastra / Vercel AI SDK / Dify · MCP Server 开发 · Function / Tool Calling · Structured Output · Langfuse / LangSmith / OpenTelemetry · vLLM / Ollama · LoRA 训练</dd>
-          <dt>模型</dt><dd>经 OpenAI 兼容协议统一接入：DeepSeek · 通义千问 Qwen · 豆包 / Seedance · 智谱 GLM · Kimi · Vidu · bge-m3 / bge-reranker</dd>
-          <dt>熟练</dt><dd>React Native · Electron · Go（模型网关二次开发与健康探针）· MySQL · MongoDB · Milvus / Qdrant · MinIO · Celery · FFmpeg · CI/CD</dd>
+          <dt>主力</dt><dd>Python（Asyncio 异步编程）/ FastAPI · TypeScript / React / Vite · Node.js · PostgreSQL + pgvector · Redis · Docker / Compose · Temporal · Linux · Git</dd>
+          <dt>Agent / LLM</dt><dd>LangGraph / LangChain / LlamaIndex / OpenAI Agents SDK / AutoGen / CrewAI / Mastra / Vercel AI SDK / Dify · MCP Server 开发 · Function / Tool Calling · Structured Output · CoT / ReAct / Few-shot · Langfuse / LangSmith / OpenTelemetry · RAGAS</dd>
+          <dt>模型</dt><dd>经 OpenAI 兼容协议统一接入：GPT · Claude · DeepSeek · 通义千问 Qwen · Llama · 豆包 / Seedance · 智谱 GLM · Kimi · Vidu · bge-m3 / bge-reranker</dd>
+          <dt>模型工程</dt><dd>vLLM / Ollama 私有化部署 · 模型量化 · LoRA / SFT / DPO 微调 · Transformer 与 LLM 推理机制</dd>
+          <dt>平台架构</dt><dd>Java（Spring Boot / Spring Cloud）· K8s · 服务网格（Istio）· Prometheus / Grafana / ELK · 高并发任务调度 · 流式处理（Flink / Spark，实时 RAG / 流式 Agent）</dd>
+          <dt>熟练</dt><dd>React Native · Electron · Go（模型网关二次开发与健康探针）· MySQL · MongoDB · Milvus / Qdrant / Chroma / Pinecone · MinIO · Celery · FFmpeg · CI/CD · 数据结构与算法 · 传统 NLP（实体抽取、文本分类）</dd>
           <dt>AI Coding</dt><dd>Cursor · Claude Code · Codex · GitHub Copilot</dd>
-          <dt>了解</dt><dd>Nomad · Three.js · Expo · computer-use</dd>
+          <dt>了解</dt><dd>C++ · Nomad · Three.js · Expo · computer-use</dd>
         </dl>
       </article>
 
